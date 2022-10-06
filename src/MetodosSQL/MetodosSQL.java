@@ -8,8 +8,11 @@ package MetodosSQL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
 /**
@@ -24,11 +27,12 @@ public class MetodosSQL {
     public static int resultado_numero =0;
     
     
+    
     public int guardar(String Nombres, String Apellidos, String Correo ){
         int resultado =0;
         Connection conexion=null;
         
-        String sentencia_guardar =("INSERT INTO Usuarios (Nombres,Apellidos,Correo)values(?,?,?)" );
+        String sentencia_guardar =("INSERT INTO Estudiantes (Nombres,Apellidos,Correo)values(?,?,?)" );
         
           try {
             conexion = ConexionBD.conectar();
@@ -75,28 +79,249 @@ public class MetodosSQL {
         return Buscar_Nombre;
     }
     
-    
-    public static String BuscarUsuarioRegistrado(String Usuario, String Contrasena){
+    public static String BuscarNombres(String Correo){
         
-        String busqueda_usuario = null;
+        String Buscar_Nombre = null;
         Connection conexion = null ;
         
         try {
             conexion = ConexionBD.conectar();
-            String sentencia_buscar_usuario = ("SELECT Nombres, Usuario , Contrasena FROM users WHERE Usuario = '"+Usuario+"'&& Contrasena = '"+Contrasena+"'");
-            sentencia_preparada = conexion.prepareStatement(sentencia_buscar_usuario);
+            String sentencia_buscar =("SELECT Nombres,Apellidos FROM estudiantes WHERE Correo = '"+Correo+"'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+            
+            if (resultado.next()) {
+                String Nombres=resultado.getString("Nombres");
+                String Apellidos=resultado.getString("Apellidos");
+               Buscar_Nombre =(Nombres +" "+Apellidos);
+   
+            }
+            conexion.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Buscar_Nombre;
+    }
+    
+    
+   
+    
+    
+    
+    
+    public int LlenarNotaMatematica(String Correo,String calificaion9){
+        int resultado =0;
+        Connection conexion=null;
+        
+        String sentencia_llenar =("UPDATE  estudiantes SET Matematicas = '"+calificaion9+"' WHERE Correo = '"+Correo+"'");
+        
+          try {
+            conexion = ConexionBD.conectar();
+            sentencia_preparada=conexion.prepareStatement(sentencia_llenar);
+            resultado = sentencia_preparada.executeUpdate();
+            if(resultado >0){
+                JOptionPane.showMessageDialog(null, "modificado");
+            }
+            sentencia_preparada.close();
+            
+            conexion.close();     
+            
+        } catch (Exception e) {
+           
+            System.out.println(e);
+        }
+     return resultado;
+    }
+    
+    
+    
+    public static String BuscarNotaMatematica(String Correo){
+        
+        String Buscar_Nota = null;
+        Connection conexion = null ;
+        
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar =("SELECT Matematicas FROM estudiantes WHERE Correo = '"+Correo+"'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+            
+            if (resultado.next()) {
+              String Matematicas=resultado.getString("Matematicas");
+              
+              Buscar_Nota =(Matematicas);
+              
+            }
+            conexion.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Buscar_Nota;
+    }
+    
+    
+    public int LlenarNotaLenguaje(String Correo,String calificaion8){
+        int resultado =0;
+        Connection conexion=null;
+        
+        String sentencia_llenar =("UPDATE  estudiantes SET Lenguaje = '"+calificaion8+"' WHERE Correo = '"+Correo+"'");
+        
+          try {
+            conexion = ConexionBD.conectar();
+            sentencia_preparada=conexion.prepareStatement(sentencia_llenar);
+            resultado = sentencia_preparada.executeUpdate();
+            if(resultado >0){
+                JOptionPane.showMessageDialog(null, "modificado");
+            }
+            sentencia_preparada.close();
+            
+            conexion.close();     
+            
+        } catch (Exception e) {
+           
+            System.out.println(e);
+        }
+     return resultado;
+    }
+    
+    
+    
+    public static String BuscarNotaLenguaje(String Correo){
+        
+        String Buscar_Nota = null;
+        Connection conexion = null ;
+        
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar =("SELECT Lenguaje FROM estudiantes WHERE Correo = '"+Correo+"'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+            
+            if (resultado.next()) {
+              String Lenguaje=resultado.getString("Lenguaje");
+              
+              Buscar_Nota =(Lenguaje);
+              
+            }
+            conexion.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Buscar_Nota;
+    }
+    
+    
+    
+    
+     public int LlenarNotaSociales(String Correo,String calificaion8){
+        int resultado =0;
+        Connection conexion=null;
+        
+        String sentencia_llenar =("UPDATE  estudiantes SET Sociales = '"+calificaion8+"' WHERE Correo = '"+Correo+"'");
+        
+          try {
+            conexion = ConexionBD.conectar();
+            sentencia_preparada=conexion.prepareStatement(sentencia_llenar);
+            resultado = sentencia_preparada.executeUpdate();
+            if(resultado >0){
+                JOptionPane.showMessageDialog(null, "modificado");
+            }
+            sentencia_preparada.close();
+            
+            conexion.close();     
+            
+        } catch (Exception e) {
+           
+            System.out.println(e);
+        }
+     return resultado;
+    }
+    
+    
+    
+    public static String BuscarNotaSociales(String Correo){
+        
+        String Buscar_Nota = null;
+        Connection conexion = null ;
+        
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar =("SELECT Sociales FROM estudiantes WHERE Correo = '"+Correo+"'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+            
+            if (resultado.next()) {
+              String Sociales=resultado.getString("Sociales");
+              
+              Buscar_Nota =(Sociales);
+              
+            }
+            conexion.close();
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Buscar_Nota;
+    }
+    
+    
+    
+     public int Promedio(String Correo,String Promedio,String Estado){
+        int resultado =0;
+        Connection conexion=null;
+        
+        String sentencia_llenar =("UPDATE  estudiantes SET Promedio= '"+Promedio+"',Estado= '"+Estado+"' WHERE Correo = '"+Correo+"'");
+        
+          try {
+            conexion = ConexionBD.conectar();
+            sentencia_preparada=conexion.prepareStatement(sentencia_llenar);
+            resultado = sentencia_preparada.executeUpdate();
+            if(resultado >0){
+                JOptionPane.showMessageDialog(null, "modificado");
+            }
+            sentencia_preparada.close();
+            
+            conexion.close();     
+            
+        } catch (Exception e) {
+           
+            System.out.println(e);
+        }
+     return resultado;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static String BuscarCorreoRegistrado(String Correo){
+        
+        String busqueda_correo = null;
+        Connection conexion = null ;
+        
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar_correo = ("SELECT Correo FROM estudiantes WHERE Correo = '"+Correo+"'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar_correo);
             resultado = sentencia_preparada.executeQuery();
             if(resultado.next()){
-                busqueda_usuario ="usuario encontrado";
+                busqueda_correo ="correo encontrado";
             }else{
-                busqueda_usuario= "usuario no existe";
+                busqueda_correo= "correo no existe";
             }
             conexion.close();
         } catch (Exception e) {
             
             System.out.println(e);
         }
-        return busqueda_usuario;
+        return busqueda_correo;
     }
     
     
@@ -116,18 +341,18 @@ public class MetodosSQL {
     }
     
     
-    public int ValidarUsuarioRepetido(String Usuario){
+    public int ValidarCorreoRepetido(String Correo){
         
         PreparedStatement ps = null;
         ResultSet rs = null; 
         Connection conexion = null ;
       
-        String BuscarRepetido=("SELECT count(id) FROM users WHERE Usuario = ?" );
+        String BuscarRepetido=("SELECT count(Correo) FROM estudiantes WHERE Correo = ?" );
         
           try {
             conexion = ConexionBD.conectar();
             ps=conexion.prepareStatement(BuscarRepetido);
-            ps.setString(1,Usuario);
+            ps.setString(1,Correo);
             rs = ps.executeQuery();
             if(rs.next()){
                 return rs.getInt(1);

@@ -6,9 +6,14 @@
 
 package examenes;
 
+import MetodosSQL.MetodosSQL;
+import static examenes.FrmModulos.Barra;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import static java.awt.Color.green;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -21,7 +26,7 @@ public class FrmSociales extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
-       
+        this.setResizable(false);
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagen1,"src/imagenes/ImagenSociales1.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagenNorte,"src/imagenes/sol.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagenSur,"src/imagenes/pelota.png");
@@ -43,16 +48,32 @@ public class FrmSociales extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(JLEscudo,"src/imagenes/escudo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLCostumbre,"src/imagenes/costumbre.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLCostitucion,"src/imagenes/constitucion.png");
-        
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI1,"src/imagenes/apagar luces.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI2,"src/imagenes/basura.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI3,"src/imagenes/talar arboles.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI4,"src/imagenes/sembrar.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI5,"src/imagenes/reciclar.png");
-
-            
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLPiramide,"src/imagenes/piramide.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLLimitacion,"src/imagenes/ecuadorlimitacion.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/imagenes/celeste.jpg");
+        
+        JBFinalizar.setVisible(false);
+        JBFinalizar.setEnabled(false);
+        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
+        jTabbedPane1.setEnabledAt(4, false);
+        jTabbedPane1.setEnabledAt(5, false);
+        jTabbedPane1.setEnabledAt(6, false);
+        jTabbedPane1.setEnabledAt(7, false);
+        jTabbedPane1.setEnabledAt(8, false);    
         
     }
+    MetodosSQL metodos = new MetodosSQL();
+    int contador =0;
+    int s1 =0;
+    double SumaTotal =0; 
     // nota 1
     int notafinal1 =0;
     int A1=0;
@@ -93,6 +114,23 @@ public class FrmSociales extends javax.swing.JFrame {
     int F1=0;
     int F2=0;
     int F3=0;
+    int F4=0;
+    int F5=0;
+    
+     //nota 7
+    int notafinal7=0;
+    int G1=0;
+    int G2=0;
+    int G3=0;
+    int G4=0;
+    int G5=0;
+    
+     //nota 8
+    int notafinal8=0;
+    int H1=0;
+    int H2=0;
+    int H3=0;
+    
     
         
         
@@ -107,19 +145,15 @@ public class FrmSociales extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        JB3 = new javax.swing.JButton();
-        JB4 = new javax.swing.JButton();
-        JB5 = new javax.swing.JButton();
-        JB6 = new javax.swing.JButton();
-        JB7 = new javax.swing.JButton();
-        JB8 = new javax.swing.JButton();
-        JB9 = new javax.swing.JButton();
-        JB2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JLNota1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        JB10 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JLPregunta1 = new javax.swing.JLabel();
         JLActividad1 = new javax.swing.JLabel();
@@ -216,64 +250,80 @@ public class FrmSociales extends javax.swing.JFrame {
         JLI4 = new javax.swing.JLabel();
         JPI3 = new javax.swing.JPanel();
         JLI3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        JLNota2 = new javax.swing.JLabel();
-        JLNota3 = new javax.swing.JLabel();
-        JLNota4 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        JLPregunta7 = new javax.swing.JLabel();
+        JLActividad7 = new javax.swing.JLabel();
+        JCBPeru = new javax.swing.JComboBox<>();
+        JCBOPacifico = new javax.swing.JComboBox<>();
+        JCBColombia = new javax.swing.JComboBox<>();
+        JLLimitacion = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        JLPregunta8 = new javax.swing.JLabel();
+        JLActividad8 = new javax.swing.JLabel();
+        JCBBlancos = new javax.swing.JComboBox<>();
+        JCBMestizos = new javax.swing.JComboBox<>();
+        JCBIndigenas = new javax.swing.JComboBox<>();
+        JLPiramide = new javax.swing.JLabel();
+        JBFinalizar = new javax.swing.JButton();
         JB1 = new javax.swing.JButton();
-        JLNota5 = new javax.swing.JLabel();
-        JLNota6 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        JB2 = new javax.swing.JButton();
+        JB3 = new javax.swing.JButton();
+        JB4 = new javax.swing.JButton();
+        JB8 = new javax.swing.JButton();
+        JB7 = new javax.swing.JButton();
+        JB6 = new javax.swing.JButton();
+        JB5 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        JBSiguiente = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 50));
 
-        JB3.setText("Actividad # 3");
-        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, 30));
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JB4.setText("Actividad # 4");
-        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setText("Indicaciones para poder desarrollar de manera eficiente el juego.");
+        jPanel15.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 850, 30));
 
-        JB5.setText("Actividad # 5");
-        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 110, 30));
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel29.setText("<html>1.-No se permite el uso de celular, tablet u otro dispositivo tegnológico durante el juego.<html>");
+        jPanel15.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 720, 100));
 
-        JB6.setText("Actividad # 6");
-        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 110, 30));
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel28.setText("<html>2.-Leer cada pregunta antes de contestar.<html>");
+        jPanel15.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 720, 70));
 
-        JB7.setText("Actividad # 7");
-        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 30));
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("<html>3.-Si responde más de lo que se le indica en la pregunta su resultado se verá afectado.<html>");
+        jPanel15.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 720, 100));
 
-        JB8.setText("Actividad # 8");
-        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 110, 30));
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel33.setText("<html>4.-Si responde con dos respuestas en una misma pregunta, su respuesta será anulada.<html>");
+        jPanel15.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 720, 100));
 
-        JB9.setText("Actividad # 9");
-        jPanel1.add(JB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 110, 30));
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel34.setText("<html>5.-El juego tiene preguntas de forma secuencial, así que no se podrá retroceder.<html>");
+        jPanel15.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 720, 60));
 
-        JB2.setText("Actividad # 2");
-        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 110, 30));
+        jTabbedPane1.addTab("tab0", jPanel15);
 
-        jLabel1.setText("listado de actividades");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
-
-        JLNota1.setText("jLabel2");
-        jPanel1.add(JLNota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 60, 30));
-
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 70, 40));
-
-        JB10.setText("Actividad # 10");
-        jPanel1.add(JB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 110, 30));
-
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLPregunta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta1.setText("Coloca la imagen en el punto cardinal que te indican");
         jPanel2.add(JLPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
 
+        JLActividad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad1.setText("Actividad #1");
-        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 120, 27));
         jPanel2.add(JLImagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 130, 190));
 
         JLImagenNorte.setText("jLabel30");
@@ -340,31 +390,38 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, 230, 230));
 
+        JPSur.setBackground(new java.awt.Color(204, 255, 255));
         JPSur.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPSur.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(JPSur, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, 170, 170));
 
+        JPOeste.setBackground(new java.awt.Color(204, 255, 255));
         JPOeste.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPOeste.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(JPOeste, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 170, 170));
 
+        JPEste.setBackground(new java.awt.Color(204, 255, 255));
         JPEste.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPEste.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(JPEste, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 170, 170));
 
+        JPNorte.setBackground(new java.awt.Color(204, 255, 255));
         JPNorte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPNorte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(JPNorte, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 170, 170));
 
         jTabbedPane1.addTab("tab1", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLPregunta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta2.setText("Arrastra y coloca debajo de la imagen la palabra que corresponde a cada uno");
-        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 520, 25));
 
+        JLActividad2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad2.setText("Actividad #2");
-        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 120, 27));
 
         jLabel4.setText("LUNA");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 60, 40));
@@ -400,7 +457,7 @@ public class FrmSociales extends javax.swing.JFrame {
         });
         jPanel3.add(JBPlaneta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 90, 30));
 
-        JBSatelite.setText("SATELITE");
+        JBSatelite.setText("SATÉLITE");
         JBSatelite.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JBSateliteMouseDragged(evt);
@@ -428,15 +485,18 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLActividad3.setText("Actividad #4");
-        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        JLActividad3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad3.setText("Actividad #3");
+        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
+        JLPregunta3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta3.setText(" Selecciona las provincias que corresponden a la Costa");
-        jPanel4.add(JLPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel4.add(JLPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 360, 25));
 
-        JCBEsmeraldas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabi", "Sucumbios" }));
+        JCBEsmeraldas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabí", "Sucumbios" }));
         JCBEsmeraldas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCBEsmeraldasActionPerformed(evt);
@@ -444,7 +504,7 @@ public class FrmSociales extends javax.swing.JFrame {
         });
         jPanel4.add(JCBEsmeraldas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 110, -1));
 
-        JCBManabi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabi", "Sucumbios" }));
+        JCBManabi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabí", "Sucumbios" }));
         JCBManabi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCBManabiActionPerformed(evt);
@@ -452,7 +512,7 @@ public class FrmSociales extends javax.swing.JFrame {
         });
         jPanel4.add(JCBManabi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 110, -1));
 
-        JCBEloro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabi", "Sucumbios" }));
+        JCBEloro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabí", "Sucumbios" }));
         JCBEloro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCBEloroActionPerformed(evt);
@@ -460,7 +520,7 @@ public class FrmSociales extends javax.swing.JFrame {
         });
         jPanel4.add(JCBEloro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 110, -1));
 
-        JCBGuayas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabi", "Sucumbios" }));
+        JCBGuayas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "El Oro", "Esmeraldas", "Guayas", "Pichincha", "Manabí", "Sucumbios" }));
         JCBGuayas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JCBGuayasActionPerformed(evt);
@@ -473,14 +533,18 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLActividad4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad4.setText("Actividad #4");
-        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
+        JLPregunta4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta4.setText("Arrastrar y clasificar las imágenes al lugar que pertenecen");
-        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 380, 25));
 
+        JPEducacion.setBackground(new java.awt.Color(255, 255, 255));
         JPEducacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPEducacion.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -500,6 +564,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPEducacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 150, 130));
 
+        JPRespeto.setBackground(new java.awt.Color(255, 255, 255));
         JPRespeto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPRespeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -519,6 +584,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPRespeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 150, 130));
 
+        JPTareas.setBackground(new java.awt.Color(255, 255, 255));
         JPTareas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPTareas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -538,6 +604,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPTareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 150, 140));
 
+        JPCuidar.setBackground(new java.awt.Color(255, 255, 255));
         JPCuidar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPCuidar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -557,6 +624,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPCuidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 150, 140));
 
+        JPFamilia.setBackground(new java.awt.Color(255, 255, 255));
         JPFamilia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPFamilia.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -576,6 +644,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPFamilia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, 130));
 
+        JPSalud.setBackground(new java.awt.Color(255, 255, 255));
         JPSalud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPSalud.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -595,6 +664,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(JPSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 150, 130));
 
+        jPanel12.setBackground(new java.awt.Color(204, 255, 204));
         jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -603,6 +673,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 200, 540));
 
+        jPanel14.setBackground(new java.awt.Color(204, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -613,8 +684,10 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab4", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JPE.setBackground(new java.awt.Color(255, 255, 255));
         JPE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -628,6 +701,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel6.add(JPE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 180));
 
+        JPM.setBackground(new java.awt.Color(255, 255, 255));
         JPM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPM.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -644,15 +718,18 @@ public class FrmSociales extends javax.swing.JFrame {
         jLabel8.setText("¿Cuál de los dos es símbolo patrio del Ecuador?");
         jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 280, 30));
 
+        JLPregunta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta5.setText("Señale e identifique cuales son los símbolos patrios del Ecuador");
-        jPanel6.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel6.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 430, 25));
 
+        JLActividad5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad5.setText("Actividad #5");
-        jPanel6.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel6.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 120, 27));
 
         jLabel9.setText("¿Cuál de los dos es símbolo patrio del Ecuador?");
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 280, 30));
 
+        JPE1.setBackground(new java.awt.Color(255, 255, 255));
         JPE1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPE1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -666,6 +743,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel6.add(JPE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 210, 180));
 
+        JPM1.setBackground(new java.awt.Color(255, 255, 255));
         JPM1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPM1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -682,6 +760,7 @@ public class FrmSociales extends javax.swing.JFrame {
         jLabel10.setText("¿Cuál de los dos es símbolo patrio del Ecuador?");
         jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 280, 30));
 
+        JPE2.setBackground(new java.awt.Color(255, 255, 255));
         JPE2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPE2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -695,6 +774,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel6.add(JPE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 210, 180));
 
+        JPM2.setBackground(new java.awt.Color(255, 255, 255));
         JPM2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPM2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -709,21 +789,25 @@ public class FrmSociales extends javax.swing.JFrame {
         jPanel6.add(JPM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 210, 180));
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel6.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 10, 340));
+        jPanel6.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 10, 290));
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 0));
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 540, 10));
 
         jTabbedPane1.addTab("tab5", jPanel6);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta6.setText("Señale e identifique cuales son los símbolos patrios del Ecuador");
-        jPanel9.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta6.setText("Seleccione las acciones que se deben realizar para cuidar los recursos naturales.");
+        jPanel9.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 520, 25));
 
+        JLActividad6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad6.setText("Actividad #6");
-        jPanel9.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel9.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
+        JPI5.setBackground(new java.awt.Color(255, 255, 255));
         JPI5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPI5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -737,6 +821,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel9.add(JPI5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 520, 230));
 
+        JPI1.setBackground(new java.awt.Color(255, 255, 255));
         JPI1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPI1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -750,6 +835,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel9.add(JPI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 260, 230));
 
+        JPI2.setBackground(new java.awt.Color(255, 255, 255));
         JPI2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPI2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -763,6 +849,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel9.add(JPI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 260, 230));
 
+        JPI4.setBackground(new java.awt.Color(255, 255, 255));
         JPI4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPI4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -776,6 +863,7 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jPanel9.add(JPI4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, 230));
 
+        JPI3.setBackground(new java.awt.Color(255, 255, 255));
         JPI3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JPI3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -791,95 +879,252 @@ public class FrmSociales extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLPregunta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta7.setText("Seleccione  los países y el oceáno que limitan con Ecuador");
+        jPanel11.add(JLPregunta7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 400, 25));
+
+        JLActividad7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad7.setText("Actividad #7");
+        jPanel11.add(JLActividad7, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 130, 27));
+
+        JCBPeru.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBPeru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "O.Atlantico", "O.Pacifico", "Peru", "Brazil", "Colombia", "Venezuela" }));
+        JCBPeru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBPeruActionPerformed(evt);
+            }
+        });
+        jPanel11.add(JCBPeru, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 510, 170, 50));
+
+        JCBOPacifico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBOPacifico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "O.Atlantico", "O.Pacifico", "Peru", "Brazil", "Colombia", "Venezuela" }));
+        JCBOPacifico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBOPacificoActionPerformed(evt);
+            }
+        });
+        jPanel11.add(JCBOPacifico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 170, 50));
+
+        JCBColombia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBColombia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "O.Atlantico", "O.Pacifico", "Peru", "Brazil", "Colombia", "Venezuela" }));
+        JCBColombia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBColombiaActionPerformed(evt);
+            }
+        });
+        jPanel11.add(JCBColombia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 170, 50));
+
+        JLLimitacion.setText("jLabel11");
+        jPanel11.add(JLLimitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 630, 490));
+
+        jTabbedPane1.addTab("tab7", jPanel11);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLPregunta8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta8.setText("Ubicar a lado de la pirámide las diferentes sociedades que se desarrollaron en la época colonial.");
+        jPanel13.add(JLPregunta8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 620, 25));
+
+        JLActividad8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad8.setText("Actividad #8");
+        jPanel13.add(JLActividad8, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
+
+        JCBBlancos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBBlancos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Blancos", "Indígenas", "Mestizos" }));
+        JCBBlancos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBBlancosActionPerformed(evt);
+            }
+        });
+        jPanel13.add(JCBBlancos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 190, 50));
+
+        JCBMestizos.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBMestizos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Blancos", "Indígenas", "Mestizos" }));
+        JCBMestizos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBMestizosActionPerformed(evt);
+            }
+        });
+        jPanel13.add(JCBMestizos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 190, 50));
+
+        JCBIndigenas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBIndigenas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Blancos", "Indígenas", "Mestizos" }));
+        JCBIndigenas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBIndigenasActionPerformed(evt);
+            }
+        });
+        jPanel13.add(JCBIndigenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, 190, 50));
+
+        JLPiramide.setText("jLabel11");
+        jPanel13.add(JLPiramide, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 480, 520));
+
+        jTabbedPane1.addTab("tab8", jPanel13);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 970, 720));
 
-        jButton1.setText("BOTON VERIFICAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBFinalizar.setBackground(new java.awt.Color(255, 126, 57));
+        JBFinalizar.setText("Finalizar Prueba");
+        JBFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBFinalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 150, 50));
+        jPanel1.add(JBFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 50));
 
-        JLNota2.setText("jLabel26");
-        jPanel1.add(JLNota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 40, 30));
-
-        JLNota3.setText("jLabel26");
-        jPanel1.add(JLNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 40, 30));
-
-        JLNota4.setText("jLabel26");
-        jPanel1.add(JLNota4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 40, 30));
-
-        JB1.setText("Actividad # 1");
-        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 110, 30));
-
-        JLNota5.setText("jLabel26");
-        jPanel1.add(JLNota5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 40, 30));
-
-        JLNota6.setText("jLabel26");
-        jPanel1.add(JLNota6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 40, 30));
-
-        jButton5.setText("regresar a modulos ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        JB1.setBackground(new java.awt.Color(255, 255, 255));
+        JB1.setText("1");
+        JB1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JB1MouseDragged(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 160, 40));
+        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 50, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1260, 820));
+        JB2.setBackground(new java.awt.Color(255, 255, 255));
+        JB2.setText("2");
+        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 40));
+
+        JB3.setBackground(new java.awt.Color(255, 255, 255));
+        JB3.setText("3");
+        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 50, 40));
+
+        JB4.setBackground(new java.awt.Color(255, 255, 255));
+        JB4.setText("4");
+        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 50, 40));
+
+        JB8.setBackground(new java.awt.Color(255, 255, 255));
+        JB8.setText("8");
+        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 50, 40));
+
+        JB7.setBackground(new java.awt.Color(255, 255, 255));
+        JB7.setText("7");
+        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 50, 40));
+
+        JB6.setBackground(new java.awt.Color(255, 255, 255));
+        JB6.setText("6");
+        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 50, 40));
+
+        JB5.setBackground(new java.awt.Color(255, 255, 255));
+        JB5.setText("5");
+        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 50, 40));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel35.setText("Banco de Preguntas");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 140, 40));
+
+        JBSiguiente.setBackground(new java.awt.Color(255, 126, 57));
+        JBSiguiente.setText("Empezar");
+        JBSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBSiguienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JBSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 40));
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 170));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinalizarActionPerformed
         String calificaion1 =null;
         String calificaion2 =null;
         String calificaion3 =null;
         String calificaion4 =null;
         String calificaion5 =null;
         String calificaion6 =null;
+        String calificaion7 =null;
+        String calificaion8 =null;
         //nota actividad 1
        
         notafinal1= A1+A2+A3+A4;
         calificaion1 = Integer.toString(notafinal1);
-        JLNota1.setText(calificaion1);
+        
         
         //nota actividad 2
         notafinal2 =B1+B2+B3;
         calificaion2 = Integer.toString(notafinal2);
-        JLNota2.setText(calificaion2);
+       
         
         
         //nota actividad 3
         
         notafinal3 =C1+C2+C3+C4;
         calificaion3 = Integer.toString(notafinal3);
-        JLNota3.setText(calificaion3);
+       
         
          //nota actividad 4
          
         notafinal4 =D1+D2+D3+D4+D5+D6;
         calificaion4 = Integer.toString(notafinal4);
-        JLNota4.setText(calificaion4);
+        
         
         
         //nota actividad 5
          
         notafinal5 =E1+E2+E3+E4;
         calificaion5 = Integer.toString(notafinal5);
-        JLNota5.setText(calificaion5);
+        
         
          //nota actividad 6
          
-        notafinal6 =F1+F2+F3;
+        notafinal6 =F1+F2+F3+F4+F5;
+        if(notafinal6 <=1){
+            notafinal6=1;
+        }
         calificaion6 = Integer.toString(notafinal6);
-        JLNota6.setText(calificaion6);
+       
+        
+        
+        //nota actividad 7
+         
+        notafinal7 =G1+G2+G3;
+        calificaion7 = Integer.toString(notafinal7);
         
         
         
+        //nota actividad 8
+         
+        notafinal8 =H1+H2+H3;
+        calificaion8 = Integer.toString(notafinal8);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        SumaTotal= notafinal1+notafinal2+notafinal3+notafinal4+notafinal5+notafinal6+notafinal7+notafinal8;
+        
+        SumaTotal = SumaTotal*0.34482;
+         BigDecimal bd = new BigDecimal(SumaTotal).setScale(1,RoundingMode.HALF_UP);
+        calificaion8  = String.valueOf(bd);
+        
+        
+         FrmModulos.JLN2.setText("1");
+       if(FrmModulos.JLN1.getText().equals("1") && FrmModulos.JLN3.getText().equals("1")){
+           s1= 99;
+           FrmModulos.JBFin.setEnabled(true);
+           FrmModulos.JLPorcentaje.setText("100%");
+        }else if(FrmModulos.JLN1.getText().equals("1") || FrmModulos.JLN3.getText().equals("1") ){
+           s1= 66;
+           FrmModulos.JLPorcentaje.setText("66%");
+        }else{
+           s1=33;
+           FrmModulos.JLPorcentaje.setText("33%");
+        }
+        
+       Barra.setValue(s1);
+       this.setVisible(false);
+        
+       metodos.LlenarNotaSociales(FrmModulos.LBCorreo.getText(),calificaion8);
+        
+    }//GEN-LAST:event_JBFinalizarActionPerformed
 
     private void JPEducacionMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPEducacionMouseDragged
         if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
@@ -892,7 +1137,7 @@ public class FrmSociales extends javax.swing.JFrame {
            }else{
               D1=0;
              }
-            jLabel3.setText("("+ JPEducacion.getLocation().x+","+ JPEducacion.getLocation().y+")") ;
+            
        
               JPEducacion.repaint();
             
@@ -982,7 +1227,7 @@ public class FrmSociales extends javax.swing.JFrame {
             jPanel2.setLayout(new BorderLayout());
              JLImagenNorte.setLocation( JLImagenNorte.getLocation().x+ evt.getX() -  JLImagenNorte.getWidth()/2 ,
              JLImagenNorte.getLocation().y+ evt.getY() -  JLImagenNorte.getHeight());
-             jLabel3.setText("("+ JLImagenNorte.getLocation().x+","+ JLImagenNorte.getLocation().y+")") ;
+             
               if (JLImagenNorte.getLocation().x <270 && JLImagenNorte.getLocation().x >220 && JLImagenNorte.getLocation().y >100  &&  JLImagenNorte.getLocation().y <150  ){
               A1=1;
            }else{
@@ -1075,7 +1320,7 @@ public class FrmSociales extends javax.swing.JFrame {
            }else{
               B1=0;
              }
-              jLabel3.setText("("+ JBPlaneta.getLocation().x+","+ JBPlaneta.getLocation().y+")") ;
+              
               JBPlaneta.repaint();
             } 
     }//GEN-LAST:event_JBPlanetaMouseDragged
@@ -1249,30 +1494,139 @@ public class FrmSociales extends javax.swing.JFrame {
     }//GEN-LAST:event_JPM2MouseClicked
 
     private void JPI5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPI5MouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()== 1){
+        JPI5.setBackground(Color.green);
+        F3=1;
+       }else{
+           JPI5.setBackground(Color.white);
+           F3=0;
+       }
     }//GEN-LAST:event_JPI5MouseClicked
 
     private void JPI1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPI1MouseClicked
-        // TODO add your handling code here:
+       if(evt.getClickCount()== 1){
+        JPI1.setBackground(Color.green);
+        F1=1;
+       }else{
+        JPI1.setBackground(Color.white);
+        F1=0;
+       }
+        
     }//GEN-LAST:event_JPI1MouseClicked
 
     private void JPI2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPI2MouseClicked
-        // TODO add your handling code here:
+       if(evt.getClickCount()== 1){
+        JPI2.setBackground(Color.green);
+        F4=-1;
+       }else{
+        JPI2.setBackground(Color.white);
+        F4=0;  
+       }
     }//GEN-LAST:event_JPI2MouseClicked
 
     private void JPI4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPI4MouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()== 1){
+        JPI4.setBackground(Color.green);
+        F2=1;
+       }else{
+           JPI4.setBackground(Color.white);
+           F2=0;
+       }
     }//GEN-LAST:event_JPI4MouseClicked
 
     private void JPI3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPI3MouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()== 1){
+        JPI3.setBackground(Color.green);
+        F5=-1;
+       }else{
+           JPI3.setBackground(Color.white);
+           F5=0;
+       }
     }//GEN-LAST:event_JPI3MouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        FrmModulos v = new FrmModulos();
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void JCBBlancosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBBlancosActionPerformed
+         if(JCBBlancos.getSelectedItem().equals("Blancos")){
+           H1=1;
+        }else{
+           H1=0;
+        }
+    }//GEN-LAST:event_JCBBlancosActionPerformed
+
+    private void JCBMestizosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBMestizosActionPerformed
+        if(JCBMestizos.getSelectedItem().equals("Mestizos")){
+           H2=1;
+        }else{
+           H2=0;
+        }
+    }//GEN-LAST:event_JCBMestizosActionPerformed
+
+    private void JCBIndigenasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBIndigenasActionPerformed
+        if(JCBIndigenas.getSelectedItem().equals("Indigenas")){
+           H3=1;
+        }else{
+           H3=0;
+        }
+    }//GEN-LAST:event_JCBIndigenasActionPerformed
+
+    private void JCBOPacificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBOPacificoActionPerformed
+        if(JCBOPacifico.getSelectedItem().equals("O.Pacifico")){
+           G1=1;
+        }else{
+           G1=0;
+        }
+    }//GEN-LAST:event_JCBOPacificoActionPerformed
+
+    private void JCBColombiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBColombiaActionPerformed
+        if(JCBColombia.getSelectedItem().equals("Colombia")){
+           G2=1;
+        }else{
+           G2=0;
+        }
+    }//GEN-LAST:event_JCBColombiaActionPerformed
+
+    private void JCBPeruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBPeruActionPerformed
+        if(JCBPeru.getSelectedItem().equals("Peru")){
+           G3=1;
+        }else{
+           G3=0;
+        }
+    }//GEN-LAST:event_JCBPeruActionPerformed
+
+    private void JB1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB1MouseDragged
+
+    }//GEN-LAST:event_JB1MouseDragged
+
+    private void JBSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSiguienteActionPerformed
+        if(contador<8){
+        JBSiguiente.setText("Siguiente Pregunta");
+        contador ++;
+        jTabbedPane1.setSelectedIndex(contador); 
+        
+       }else{
+        
+        JBFinalizar.setVisible(true);
+        JBFinalizar.setEnabled(true);
+        JBSiguiente.setEnabled(false);
+        JBSiguiente.setVisible(false);
+        }
+        if(contador == 1){
+            JB1.setBackground(green);
+        }if(contador==2){
+            JB2.setBackground(green);
+        }if(contador==3){
+            JB3.setBackground(green);
+        }if(contador==4){
+            JB4.setBackground(green);
+        }if(contador==5){
+            JB5.setBackground(green);
+        }if(contador==6){
+            JB6.setBackground(green);
+        }if(contador==7){
+            JB7.setBackground(green);
+        }if(contador==8){
+            JB8.setBackground(green);
+        }
+    }//GEN-LAST:event_JBSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1312,7 +1666,6 @@ public class FrmSociales extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB1;
-    private javax.swing.JButton JB10;
     private javax.swing.JButton JB2;
     private javax.swing.JButton JB3;
     private javax.swing.JButton JB4;
@@ -1320,20 +1673,29 @@ public class FrmSociales extends javax.swing.JFrame {
     private javax.swing.JButton JB6;
     private javax.swing.JButton JB7;
     private javax.swing.JButton JB8;
-    private javax.swing.JButton JB9;
     private javax.swing.JButton JBEstrella;
+    private javax.swing.JButton JBFinalizar;
     private javax.swing.JButton JBPlaneta;
     private javax.swing.JButton JBSatelite;
+    private javax.swing.JButton JBSiguiente;
+    private javax.swing.JComboBox<String> JCBBlancos;
+    private javax.swing.JComboBox<String> JCBColombia;
     private javax.swing.JComboBox<String> JCBEloro;
     private javax.swing.JComboBox<String> JCBEsmeraldas;
     private javax.swing.JComboBox<String> JCBGuayas;
+    private javax.swing.JComboBox<String> JCBIndigenas;
     private javax.swing.JComboBox<String> JCBManabi;
+    private javax.swing.JComboBox<String> JCBMestizos;
+    private javax.swing.JComboBox<String> JCBOPacifico;
+    private javax.swing.JComboBox<String> JCBPeru;
     private javax.swing.JLabel JLActividad1;
     private javax.swing.JLabel JLActividad2;
     private javax.swing.JLabel JLActividad3;
     private javax.swing.JLabel JLActividad4;
     private javax.swing.JLabel JLActividad5;
     private javax.swing.JLabel JLActividad6;
+    private javax.swing.JLabel JLActividad7;
+    private javax.swing.JLabel JLActividad8;
     private javax.swing.JLabel JLCostitucion;
     private javax.swing.JLabel JLCostumbre;
     private javax.swing.JLabel JLCuidar;
@@ -1356,19 +1718,17 @@ public class FrmSociales extends javax.swing.JFrame {
     private javax.swing.JLabel JLImagenSol;
     private javax.swing.JLabel JLImagenSur;
     private javax.swing.JLabel JLImagenTierra;
+    private javax.swing.JLabel JLLimitacion;
     private javax.swing.JLabel JLMachu;
-    private javax.swing.JLabel JLNota1;
-    private javax.swing.JLabel JLNota2;
-    private javax.swing.JLabel JLNota3;
-    private javax.swing.JLabel JLNota4;
-    private javax.swing.JLabel JLNota5;
-    private javax.swing.JLabel JLNota6;
+    private javax.swing.JLabel JLPiramide;
     private javax.swing.JLabel JLPregunta1;
     private javax.swing.JLabel JLPregunta2;
     private javax.swing.JLabel JLPregunta3;
     private javax.swing.JLabel JLPregunta4;
     private javax.swing.JLabel JLPregunta5;
     private javax.swing.JLabel JLPregunta6;
+    private javax.swing.JLabel JLPregunta7;
+    private javax.swing.JLabel JLPregunta8;
     private javax.swing.JLabel JLRespeto;
     private javax.swing.JLabel JLSalud;
     private javax.swing.JLabel JLTexto1;
@@ -1399,17 +1759,21 @@ public class FrmSociales extends javax.swing.JFrame {
     private javax.swing.JPanel JPSalud;
     private javax.swing.JPanel JPSur;
     private javax.swing.JPanel JPTareas;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1418,9 +1782,13 @@ public class FrmSociales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1430,5 +1798,7 @@ public class FrmSociales extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }

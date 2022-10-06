@@ -6,9 +6,15 @@
 
 package examenes;
 
+import MetodosSQL.MetodosSQL;
+import static examenes.FrmModulos.Barra;
+import static examenes.FrmModulos.JLPorcentaje;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import static java.awt.Color.green;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -21,7 +27,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         
         initComponents();
         setLocationRelativeTo(null);
-       
+        this.setResizable(false);
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagen1,"src/imagenes/Imagen1Lengua.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagen2,"src/imagenes/Imagen2Lengua.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagen3,"src/imagenes/Imagen3Lengua.png");
@@ -35,15 +41,51 @@ public class FrmLenguaje extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI4,"src/imagenes/lápiz.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI5,"src/imagenes/pajaro.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLI6,"src/imagenes/telefono.png");
-        
         rsscalelabel.RSScaleLabel.setScaleLabel(JLIMaria,"src/imagenes/maria.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLIMama,"src/imagenes/mama.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLIPerro,"src/imagenes/ladra.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLLibreria,"src/imagenes/libreria.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLPersona,"src/imagenes/comer.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLNiña,"src/imagenes/libro.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLPelota,"src/imagenes/pelotaa.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLTienda,"src/imagenes/tienda.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/imagenes/celeste.jpg");
+       
+     
+        JBFinalizar.setVisible(false);
+        JBFinalizar.setEnabled(false);
+        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
+        jTabbedPane1.setEnabledAt(4, false);
+        jTabbedPane1.setEnabledAt(5, false);
+        jTabbedPane1.setEnabledAt(6, false);
+        jTabbedPane1.setEnabledAt(7, false);
+        jTabbedPane1.setEnabledAt(8, false);
         
+        BotonG1.add(RB1);
+        BotonG1.add(RB2);
+        BotonG1.add(RB3);
         
+        BotonG2.add(RB4);
+        BotonG2.add(RB5);
+        BotonG2.add(RB6);
+        
+        BotonG3.add(RB7);
+        BotonG3.add(RB8);
+        BotonG3.add(RB9);
+        
+        BotonG4.add(RB10);
+        BotonG4.add(RB11);
+        BotonG4.add(RB12);
         
         
     }
+    MetodosSQL metodos = new MetodosSQL();
+    int l1=0;
+    int contador =0;
+    double SumaTotal =0; 
     // nota 1
     int notafinal1 =0;
     int A1=0;
@@ -51,6 +93,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
     int A3=0;
     int A4=0;
     int A5=0;
+    int A6=0;
+    int A7=0;
+    int A8=0;
+    int A9=0;
+    int A10=0;
     //nota 2
     int notafinal2=0;
     int n1=0;
@@ -71,6 +118,10 @@ public class FrmLenguaje extends javax.swing.JFrame {
     float C8=0;
     float C9=0;
     float C10=0;
+    float C11=0;
+    float C12=0;
+    
+    
      //nota 4
     int notafinal4=0;
     int D1=0;
@@ -83,12 +134,28 @@ public class FrmLenguaje extends javax.swing.JFrame {
     int E2=0;
     int E3=0;
     int E4=0;
+    int E5=0;
+    int E6=0;
     
      //nota 6
     int notafinal6=0;
     int F1=0;
     int F2=0;
     int F3=0;
+    
+    //nota 7
+    int notafinal7=0;
+    int G1=0;
+    int G2=0;
+    int G3=0;
+    int G4=0;
+    
+    //nota 8
+    int notafinal8=0;
+    int H1=0;
+    int H2=0;
+    int H3=0;
+    int H4=0;
     
         
         
@@ -102,26 +169,23 @@ public class FrmLenguaje extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BotonG1 = new javax.swing.ButtonGroup();
+        BotonG2 = new javax.swing.ButtonGroup();
+        BotonG3 = new javax.swing.ButtonGroup();
+        BotonG4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        JB3 = new javax.swing.JButton();
-        JB4 = new javax.swing.JButton();
-        JB5 = new javax.swing.JButton();
-        JB6 = new javax.swing.JButton();
-        JB7 = new javax.swing.JButton();
-        JB8 = new javax.swing.JButton();
-        JB9 = new javax.swing.JButton();
-        JB1 = new javax.swing.JButton();
-        JB2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JLNota1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        JB10 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JLPregunta1 = new javax.swing.JLabel();
         JLActividad1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jCheckBoxA = new javax.swing.JCheckBox();
         jCheckBoxE = new javax.swing.JCheckBox();
         jCheckBoxP = new javax.swing.JCheckBox();
@@ -133,6 +197,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jCheckBoxM = new javax.swing.JCheckBox();
         jCheckBoxC = new javax.swing.JCheckBox();
         JLImagen1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         JLPregunta2 = new javax.swing.JLabel();
         JLActividad2 = new javax.swing.JLabel();
@@ -227,132 +292,184 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        JLNota2 = new javax.swing.JLabel();
-        JLNota3 = new javax.swing.JLabel();
-        JLNota4 = new javax.swing.JLabel();
-        JLNota5 = new javax.swing.JLabel();
-        JLNota6 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        JLPregunta7 = new javax.swing.JLabel();
+        JLActividad7 = new javax.swing.JLabel();
+        JLTexto = new javax.swing.JLabel();
+        JLLibreria = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        RB1 = new javax.swing.JRadioButton();
+        RB3 = new javax.swing.JRadioButton();
+        RB2 = new javax.swing.JRadioButton();
+        jLabel32 = new javax.swing.JLabel();
+        RB4 = new javax.swing.JRadioButton();
+        RB5 = new javax.swing.JRadioButton();
+        RB6 = new javax.swing.JRadioButton();
+        jLabel33 = new javax.swing.JLabel();
+        RB7 = new javax.swing.JRadioButton();
+        RB8 = new javax.swing.JRadioButton();
+        RB9 = new javax.swing.JRadioButton();
+        jLabel34 = new javax.swing.JLabel();
+        RB10 = new javax.swing.JRadioButton();
+        RB11 = new javax.swing.JRadioButton();
+        RB12 = new javax.swing.JRadioButton();
+        jPanel14 = new javax.swing.JPanel();
+        JLPregunta8 = new javax.swing.JLabel();
+        JLActividad8 = new javax.swing.JLabel();
+        JLPersona = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        JLPelota = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        JLTienda = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel38 = new javax.swing.JLabel();
+        JLNiña = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel39 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        JBFinalizar = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        JB2 = new javax.swing.JButton();
+        JB1 = new javax.swing.JButton();
+        JB3 = new javax.swing.JButton();
+        JB4 = new javax.swing.JButton();
+        JB8 = new javax.swing.JButton();
+        JB7 = new javax.swing.JButton();
+        JB6 = new javax.swing.JButton();
+        JB5 = new javax.swing.JButton();
+        JBSiguiente = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 50));
 
-        JB3.setText("Actividad # 3");
-        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, 30));
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JB4.setText("Actividad # 4");
-        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel40.setText("Indicaciones para poder desarrollar de manera eficiente el juego.");
+        jPanel15.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 850, 30));
 
-        JB5.setText("Actividad # 5");
-        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 110, 30));
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel46.setText("<html>1.-No se permite el uso de celular, tablet u otro dispositivo tegnológico durante el juego.<html>");
+        jPanel15.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 720, 100));
 
-        JB6.setText("Actividad # 6");
-        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 110, 30));
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel47.setText("<html>2.-Leer cada pregunta antes de contestar.<html>");
+        jPanel15.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 720, 70));
 
-        JB7.setText("Actividad # 7");
-        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 30));
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel48.setText("<html>3.-Si responde más de lo que se le indica en la pregunta su resultado se verá afectado.<html>");
+        jPanel15.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 720, 100));
 
-        JB8.setText("Actividad # 8");
-        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 110, 30));
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel49.setText("<html>4.-Si responde con dos respuestas en una misma pregunta, su respuesta será anulada.<html>");
+        jPanel15.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 720, 100));
 
-        JB9.setText("Actividad # 9");
-        jPanel1.add(JB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 110, 30));
+        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel50.setText("<html>5.-El juego tiene preguntas de forma secuencial, así que no se podrá retroceder.<html>");
+        jPanel15.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 720, 60));
 
-        JB1.setText("Actividad # 1");
-        JB1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JB1MouseDragged(evt);
-            }
-        });
-        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 110, 30));
+        jTabbedPane1.addTab("tab0", jPanel15);
 
-        JB2.setText("Actividad # 2");
-        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 110, 30));
-
-        jLabel1.setText("listado de actividades");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
-
-        JLNota1.setText("jLabel2");
-        jPanel1.add(JLNota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 60, 30));
-
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 70, 40));
-
-        JB10.setText("Actividad # 10");
-        jPanel1.add(JB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 110, 30));
-
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta1.setText("Seleccione con un visto las letras mayúsculas faltan en el texto  ");
-        jPanel2.add(JLPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta1.setText("Seleccione con un visto las letras mayúsculas que faltan en el texto (  todas no son las respuestas)");
+        jPanel2.add(JLPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 670, 25));
 
+        JLActividad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad1.setText("Actividad #1");
-        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 130, 27));
 
-        jScrollPane1.setFont(new java.awt.Font("Symbol", 0, 18)); // NOI18N
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("roberto es un estudiante de tercero de bachillerato unificado \nque vive en la ciudad de Guayaquil con su familia, todos los \nferiados van a visitar a su abuela Ana que vive en la ciudad \nde manta, pero este año su padre pedro, tomó la decisión de \nmejor viajar a quito, debido a que su mamá quería conocer \notros lugares turísticos que tiene el ecuador. \n");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 510, 200));
-
+        jCheckBoxA.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxA.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxA.setText("A");
-        jPanel2.add(jCheckBoxA, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 60, 50));
+        jCheckBoxA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jCheckBoxA, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 60, 50));
 
+        jCheckBoxE.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxE.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxE.setText("E");
-        jPanel2.add(jCheckBoxE, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 50, 50));
+        jCheckBoxE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jCheckBoxE, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 50, 50));
 
+        jCheckBoxP.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxP.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxP.setText("P");
-        jPanel2.add(jCheckBoxP, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+        jCheckBoxP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jCheckBoxP, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
+        jCheckBoxN.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxN.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxN.setText("N");
+        jCheckBoxN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
 
+        jCheckBoxG.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxG.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxG.setText("G");
+        jCheckBoxG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxG, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, -1, -1));
 
+        jCheckBoxQ.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxQ.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxQ.setText("Q");
+        jCheckBoxQ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxQ, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
 
+        jCheckBoxR.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxR.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxR.setText("R");
-        jPanel2.add(jCheckBoxR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, -1, -1));
+        jCheckBoxR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jCheckBoxR, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, -1, -1));
 
+        jCheckBoxZ.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxZ.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxZ.setText("Z");
+        jCheckBoxZ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 510, -1, -1));
 
+        jCheckBoxM.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxM.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxM.setText("M");
+        jCheckBoxM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, -1, -1));
 
+        jCheckBoxC.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxC.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jCheckBoxC.setText("C");
+        jCheckBoxC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(jCheckBoxC, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, -1, -1));
-        jPanel2.add(JLImagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 290, 190));
+        jPanel2.add(JLImagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 260, 190));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("<html>roberto es un estudiante de tercero de bachillerato unificado  que vive en la ciudad de Guayaquil con su familia, todos los  feriados van a visitar a su abuela Ana que vive en la ciudad  de manta, pero este año su padre pedro, tomó la decisión de  mejor viajar a quito, debido a que su mamá quería conocer  otros lugares turísticos que tiene el ecuador.<html>");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 520, 270));
 
         jTabbedPane1.addTab("tab1", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta2.setText("Arrastre el recuadro del antónimo junto a la palabra correcta la cual pertenece  ");
-        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta2.setText("Arrastre el recuadro del antónimo junto a la palabra correcta en la cual pertenece  (1 respuesta en cada recuadro)");
+        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 700, 25));
 
+        JLActividad2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad2.setText("Actividad #2");
-        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 130, 27));
         jPanel3.add(JLImagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 270, 190));
 
         jLabel4.setText("NOCHE");
@@ -373,7 +490,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jLabel9.setText("SILENCIO");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 60, 40));
 
-        jLabel10.setText("FALSO");
+        jLabel10.setText("       FALSO");
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -387,7 +504,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 80, 40));
 
-        jLabel11.setText("RUIDO");
+        jLabel11.setText("        RUIDO");
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -401,7 +518,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 80, 40));
 
-        jLabel12.setText("AGIL");
+        jLabel12.setText("         ÁGIL");
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -415,7 +532,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 80, 40));
 
-        jLabel13.setText("CALLAR");
+        jLabel13.setText("     CALLAR");
         jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -429,7 +546,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 80, 40));
 
-        jLabel14.setText("DESPIERTO");
+        jLabel14.setText("   DESPIERTO");
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -443,7 +560,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 80, 40));
 
-        jLabel15.setText("VACIO");
+        jLabel15.setText("      VACÍO");
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel15.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -457,7 +574,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 80, 40));
 
-        jLabel16.setText("DIA");
+        jLabel16.setText("         DÍA");
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel16.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -471,7 +588,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 80, 40));
 
-        jLabel17.setText("MAL");
+        jLabel17.setText("          MAL");
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel17.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -485,7 +602,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 80, 40));
 
-        jLabel18.setText("ERROR");
+        jLabel18.setText("       ERROR");
         jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel18.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -499,7 +616,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 80, 40));
 
-        jLabel19.setText("BUENO");
+        jLabel19.setText("       BUENO");
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel19.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -533,13 +650,16 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLActividad3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad3.setText("Actividad #3");
-        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 120, 27));
 
-        JLPregunta3.setText("Arrastre el recuadro y clasifique las palabras que son agudas y graves  ");
-        jPanel4.add(JLPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta3.setText("Arrastre el recuadro y clasifique las palabras que son agudas y graves  ( no todas son las correctas)");
+        jPanel4.add(JLPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 620, 25));
         jPanel4.add(JLImagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 180, 140));
 
         jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -554,6 +674,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jLabel29.setText("GRAVES");
         jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 210, -1, -1));
 
+        JBPalabra1.setBackground(new java.awt.Color(204, 255, 255));
         JBPalabra1.setText("HÍGADO");
         JBPalabra1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -567,6 +688,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 110, 40));
 
+        JBPalabra2.setBackground(new java.awt.Color(204, 204, 255));
         JBPalabra2.setText("CORAZÓN");
         JBPalabra2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -580,6 +702,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, 40));
 
+        JBPalabra3.setBackground(new java.awt.Color(204, 204, 255));
         JBPalabra3.setText("SILLÓN");
         JBPalabra3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -593,6 +716,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 110, 40));
 
+        JBPalabra4.setBackground(new java.awt.Color(204, 255, 255));
         JBPalabra4.setText("ÁRBOL");
         JBPalabra4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -606,6 +730,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 110, 40));
 
+        JBPalabra5.setBackground(new java.awt.Color(255, 204, 204));
         JBPalabra5.setText("CAFÉ");
         JBPalabra5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -619,6 +744,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 110, 40));
 
+        JBPalabra6.setBackground(new java.awt.Color(204, 204, 255));
         JBPalabra6.setText("TÚNEL");
         JBPalabra6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -632,6 +758,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 110, 40));
 
+        JBPalabra7.setBackground(new java.awt.Color(255, 204, 204));
         JBPalabra7.setText("AZÚCAR");
         JBPalabra7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -645,6 +772,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 110, 40));
 
+        JBPalabra8.setBackground(new java.awt.Color(204, 255, 255));
         JBPalabra8.setText("LÁPIZ");
         JBPalabra8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -658,6 +786,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, 110, 40));
 
+        JBPalabra9.setBackground(new java.awt.Color(255, 204, 204));
         JBPalabra9.setText("MENÚ");
         JBPalabra9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -671,6 +800,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 110, 40));
 
+        JBPalabra10.setBackground(new java.awt.Color(204, 255, 204));
         JBPalabra10.setText("CAPITÁN");
         JBPalabra10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -684,6 +814,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 110, 40));
 
+        JBPalabra11.setBackground(new java.awt.Color(204, 255, 204));
         JBPalabra11.setText("EJÉRCITO");
         JBPalabra11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -697,6 +828,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel4.add(JBPalabra11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 110, 40));
 
+        JBPalabra12.setBackground(new java.awt.Color(204, 255, 204));
         JBPalabra12.setText("CÉSPED");
         JBPalabra12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -715,13 +847,16 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLActividad4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad4.setText("Actividad #4");
-        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
-        JLPregunta4.setText("Identifica y arrastra la imagen a lado de la categoría gramática que corresponde cada una");
-        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta4.setText("Identifica y arrastra la imagen a lado de la categoría gramatical que corresponde en cada una");
+        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 580, 25));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 0));
         jButton2.setText("Adjetivo");
@@ -735,6 +870,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jButton4.setText("Verbo");
         jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 190, 170));
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -754,6 +890,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 150, 130));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -773,6 +910,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 150, 130));
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -792,6 +930,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 150, 130));
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -813,13 +952,16 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab4", jPanel5);
 
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta5.setText("Ubica en el recuadro, la palabra que corresponde a las palabras esdrújulas");
-        jPanel10.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta5.setText("Ubica en el recuadro, la palabra que corresponde a las palabras esdrújulas ( no todas son las correctas)");
+        jPanel10.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 640, 25));
 
+        JLActividad5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad5.setText("Actividad #5");
-        jPanel10.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel10.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 130, 27));
 
         JLI5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JLI5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -903,24 +1045,29 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jLabel30.setText("Palabras Esdrújulas ");
         jPanel10.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 140, 40));
 
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 540, 390));
 
         jTabbedPane1.addTab("tab5", jPanel10);
 
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLPregunta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta6.setText("Identifique si lo subrayado es sujeto o predicado, seleccione la respuesta correcta.");
-        jPanel12.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel12.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 570, 25));
 
+        JLActividad6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad6.setText("Actividad #6");
-        jPanel12.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel12.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 140, 27));
         jPanel12.add(JLIMaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 170, 130));
 
         JLT1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JLT1.setText("María corre todos los días");
+        JLT1.setText("María corre todos los días.");
         jPanel12.add(JLT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 180, 30));
 
+        JBPredicado1.setBackground(new java.awt.Color(255, 255, 255));
         JBPredicado1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBPredicado1.setText("Predicado");
         JBPredicado1.addActionListener(new java.awt.event.ActionListener() {
@@ -932,9 +1079,10 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jPanel12.add(JLIMama, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 170, 130));
 
         JLT2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JLT2.setText("Mi mamá trabaja de carpintera ");
+        JLT2.setText("Mi mamá trabaja de carpintera. ");
         jPanel12.add(JLT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 230, 30));
 
+        JBPredicado2.setBackground(new java.awt.Color(255, 255, 255));
         JBPredicado2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBPredicado2.setText("Predicado");
         JBPredicado2.addActionListener(new java.awt.event.ActionListener() {
@@ -944,6 +1092,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel12.add(JBPredicado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 100, 40));
 
+        JBSujeto2.setBackground(new java.awt.Color(255, 255, 255));
         JBSujeto2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBSujeto2.setText("Sujeto");
         JBSujeto2.addActionListener(new java.awt.event.ActionListener() {
@@ -955,9 +1104,10 @@ public class FrmLenguaje extends javax.swing.JFrame {
         jPanel12.add(JLIPerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 170, 130));
 
         JLT3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        JLT3.setText("El perro ladra todas las noches ");
+        JLT3.setText("El perro ladra todas las noches.");
         jPanel12.add(JLT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 510, 220, 30));
 
+        JBPredicado3.setBackground(new java.awt.Color(255, 255, 255));
         JBPredicado3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBPredicado3.setText("Predicado");
         JBPredicado3.addActionListener(new java.awt.event.ActionListener() {
@@ -967,6 +1117,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel12.add(JBPredicado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 100, 40));
 
+        JBSujeto3.setBackground(new java.awt.Color(255, 255, 255));
         JBSujeto3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBSujeto3.setText("Sujeto");
         JBSujeto3.addActionListener(new java.awt.event.ActionListener() {
@@ -976,6 +1127,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
         });
         jPanel12.add(JBSujeto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, 100, 40));
 
+        JBSujeto1.setBackground(new java.awt.Color(255, 255, 255));
         JBSujeto1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JBSujeto1.setText("Sujeto");
         JBSujeto1.addActionListener(new java.awt.event.ActionListener() {
@@ -999,40 +1151,317 @@ public class FrmLenguaje extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab6", jPanel12);
 
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLPregunta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta7.setText("Escoge la respuestas correcta según corresponda");
+        jPanel13.add(JLPregunta7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 340, 25));
+
+        JLActividad7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad7.setText("Actividad #7");
+        jPanel13.add(JLActividad7, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
+
+        JLTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JLTexto.setText("<html>En la oficina Adrián tiene muchos libros, en su tiempo libre siempre escoge uno para leer, Juan su jardinero al momento de cambiar las plantas siempre se queda admirado por los libros, por su jefe le obsequia uno, sin embargo Juan con voz triste le comenta que el no sabe leer, su jefe se comprometió que en su tiempo libre él le iba a enseñar para que aprenda y así pasó un año hasta que Juan aprendió a leer y ahora el quiere terminar sus estudios y ser un buen profesional.<html>");
+        jPanel13.add(JLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 470, 180));
+
+        JLLibreria.setText("jLabel32");
+        jPanel13.add(JLLibreria, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 310, 310));
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel31.setText("1.- ¿De qué trata la lectura?");
+        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 160, 20));
+
+        RB1.setBackground(new java.awt.Color(255, 255, 255));
+        RB1.setText("De una librería");
+        RB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB1ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
+
+        RB3.setBackground(new java.awt.Color(255, 255, 255));
+        RB3.setText("<html>De un jardinero que no sabe leer y siente interés por los libros<html>");
+        RB3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB3ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 210, 50));
+
+        RB2.setBackground(new java.awt.Color(255, 255, 255));
+        RB2.setText("De Adrián");
+        RB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB2ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel32.setText("2.- ¿Cómo se llama el jardinero?");
+        jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 220, 20));
+
+        RB4.setBackground(new java.awt.Color(255, 255, 255));
+        RB4.setText("Adrián");
+        RB4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB4ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
+
+        RB5.setBackground(new java.awt.Color(255, 255, 255));
+        RB5.setText("Juan");
+        RB5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB5ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
+
+        RB6.setBackground(new java.awt.Color(255, 255, 255));
+        RB6.setText("No lo menciona en la lectura");
+        RB6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB6ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 210, 30));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel33.setText("3.- ¿Adrián que le prometió a su jardinero?");
+        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 270, 20));
+
+        RB7.setBackground(new java.awt.Color(255, 255, 255));
+        RB7.setText("Que le regalaría un libro");
+        RB7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB7ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
+
+        RB8.setBackground(new java.awt.Color(255, 255, 255));
+        RB8.setText("Que le iba a dar dinero para sus estudios");
+        RB8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB8ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 580, 270, -1));
+
+        RB9.setBackground(new java.awt.Color(255, 255, 255));
+        RB9.setText("En su tiempo libre le iba a enseñar a leer.");
+        RB9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB9ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 280, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel34.setText("4.- ¿Cuáles son las metas de Juan?");
+        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 200, 20));
+
+        RB10.setBackground(new java.awt.Color(255, 255, 255));
+        RB10.setText("Terminar sus estudios y ser profesional");
+        RB10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB10ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 550, 260, -1));
+
+        RB11.setBackground(new java.awt.Color(255, 255, 255));
+        RB11.setText("Leer un libro");
+        RB11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB11ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 580, 100, -1));
+
+        RB12.setBackground(new java.awt.Color(255, 255, 255));
+        RB12.setText("Tener mucho dinero.");
+        RB12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RB12ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(RB12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 160, 20));
+
+        jTabbedPane1.addTab("tab7", jPanel13);
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLPregunta8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta8.setText("Lee las oraciones y coloca el signo que corresponda sea esta ¿? O ¡!.");
+        jPanel14.add(JLPregunta8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 450, 25));
+
+        JLActividad8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad8.setText("Actividad #8");
+        jPanel14.add(JLActividad8, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
+
+        JLPersona.setText("jLabel35");
+        jPanel14.add(JLPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, 150));
+
+        jLabel36.setText("Quieres ir a comer mañana");
+        jPanel14.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 200, 20));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "¿", "¡" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 60, 40));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "?", "!" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 60, 40));
+
+        JLPelota.setText("jLabel35");
+        jPanel14.add(JLPelota, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 170, 150));
+
+        jLabel37.setText("Esa pelota es muy colorida");
+        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 190, 20));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "?", "!" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 60, 40));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "¿", "¡" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, 60, 40));
+
+        JLTienda.setText("jLabel35");
+        jPanel14.add(JLTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 170, 150));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "?", "!" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 540, 60, 40));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "¿", "¡" }));
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 60, 40));
+
+        jLabel38.setText("Donde esta la libreria");
+        jPanel14.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 550, 130, 20));
+
+        JLNiña.setText("jLabel35");
+        jPanel14.add(JLNiña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 170, 150));
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "¿", "¡" }));
+        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox7ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 60, 40));
+
+        jLabel39.setText("Leiste el libro que mandaron de deber");
+        jPanel14.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 280, 20));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "?", "!" }));
+        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox8ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 60, 40));
+
+        jTabbedPane1.addTab("tab8", jPanel14);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 970, 720));
 
-        jButton1.setText("BOTON VERIFICAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBFinalizar.setBackground(new java.awt.Color(255, 126, 57));
+        JBFinalizar.setText("Finalizar Prueba");
+        JBFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBFinalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 150, 50));
+        jPanel1.add(JBFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 150, 50));
 
-        JLNota2.setText("jLabel26");
-        jPanel1.add(JLNota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 40, 30));
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel35.setText("Banco de Preguntas");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 140, 40));
 
-        JLNota3.setText("jLabel26");
-        jPanel1.add(JLNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 40, 30));
+        JB2.setBackground(new java.awt.Color(255, 255, 255));
+        JB2.setText("2");
+        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 40));
 
-        JLNota4.setText("jLabel26");
-        jPanel1.add(JLNota4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 40, 30));
-
-        JLNota5.setText("jLabel26");
-        jPanel1.add(JLNota5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 40, 30));
-
-        JLNota6.setText("jLabel26");
-        jPanel1.add(JLNota6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 40, 30));
-
-        jButton5.setText("regresar a modulos ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        JB1.setBackground(new java.awt.Color(255, 255, 255));
+        JB1.setText("1");
+        JB1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JB1MouseDragged(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 160, 40));
+        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 50, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1260, 820));
+        JB3.setBackground(new java.awt.Color(255, 255, 255));
+        JB3.setText("3");
+        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 50, 40));
+
+        JB4.setBackground(new java.awt.Color(255, 255, 255));
+        JB4.setText("4");
+        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 50, 40));
+
+        JB8.setBackground(new java.awt.Color(255, 255, 255));
+        JB8.setText("8");
+        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 50, 40));
+
+        JB7.setBackground(new java.awt.Color(255, 255, 255));
+        JB7.setText("7");
+        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 50, 40));
+
+        JB6.setBackground(new java.awt.Color(255, 255, 255));
+        JB6.setText("6");
+        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 50, 40));
+
+        JB5.setBackground(new java.awt.Color(255, 255, 255));
+        JB5.setText("5");
+        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 50, 40));
+
+        JBSiguiente.setBackground(new java.awt.Color(255, 126, 57));
+        JBSiguiente.setText("Empezar");
+        JBSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBSiguienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JBSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 40));
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 170));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1046,7 +1475,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
             jLabel10.setLocation(jLabel10.getLocation().x+ evt.getX() - jLabel10.getWidth()/2 ,
             jLabel10.getLocation().y+ evt.getY() - jLabel10.getHeight());
            
-           jLabel3.setText("("+jLabel10.getLocation().x+","+jLabel10.getLocation().y+")") ;
+           
            if(jLabel10.getLocation().x <150 && jLabel10.getLocation().x >120  && jLabel10.getLocation().y >360  &&  jLabel10.getLocation().y <380  ){
               n5 = 1;
                
@@ -1097,13 +1526,18 @@ public class FrmLenguaje extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jLabel10MouseReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinalizarActionPerformed
         String calificaion1 =null;
         String calificaion2 =null;
         String calificaion3 =null;
         String calificaion4 =null;
         String calificaion5 =null;
         String calificaion6 =null;
+        String calificaion7 =null;
+        String calificaion9 =null;
+            
+        
+        
         //nota actividad 1
         if(jCheckBoxE.isSelected()){
             A1 = 1;  
@@ -1130,44 +1564,113 @@ public class FrmLenguaje extends javax.swing.JFrame {
         }else{
             A5 = 0;  
         }
-        notafinal1= A1+A2+A3+A4+A5;
+        if(jCheckBoxA.isSelected()){
+            A6 = -1;
+        }else{
+            A6 = 0;  
+        }
+        if(jCheckBoxN.isSelected()){
+            A7 = -1;
+        }else{
+            A7 = 0;  
+        }
+        if(jCheckBoxG.isSelected()){
+            A8 = -1;
+        }else{
+            A8 = 0;  
+        }
+        if(jCheckBoxZ.isSelected()){
+            A9 = -1;
+        }else{
+            A9 = 0;  
+        }
+         if(jCheckBoxC.isSelected()){
+            A10 = -1;
+        }else{
+            A10 = 0;  
+        }
+        
+        
+        notafinal1= A1+A2+A3+A4+A5+A6+A7+A8+A9+A10;
+        if(notafinal1<0){
+            notafinal1=0;
+        }
         calificaion1 = Integer.toString(notafinal1);
-        JLNota1.setText(calificaion1);
         
         //nota actividad 2
         notafinal2 =n1+n2+n3+n4+n5+n6;
         calificaion2 = Integer.toString(notafinal2);
-        JLNota2.setText(calificaion2);
+       
         
         
         //nota actividad 3
         
-        notafinal3 =C1+C2+C3+C4+C5+C6+C7+C8+C9+C10;
-        calificaion3 = String.valueOf(notafinal3);
-        JLNota3.setText(calificaion3);
+        notafinal3 =C1+C2+C3+C4+C5+C6+C7+C8+C9+C10+C11+C12;
+        if(notafinal3<0){
+            notafinal3=0;
+        }
+        calificaion3 = Float.toString(notafinal3);
+        
         
          //nota actividad 4
          
         notafinal4 =D1+D2+D3;
-        calificaion4 = Integer.toString(notafinal4);
-        JLNota4.setText(calificaion4);
+         calificaion4 = Integer.toString(notafinal4);
+        
         
          //nota actividad 5
          
-        notafinal5 =E1+E2+E3+E4;
-        calificaion5 = Integer.toString(notafinal5);
-        JLNota5.setText(calificaion5);
+        notafinal5 =E1+E2+E3+E4+E5+E6;
+        if(notafinal5<0){
+            notafinal5=0;
+        }
+         calificaion5 = Integer.toString(notafinal5);
+       
         
          //nota actividad 6
          
         notafinal6 =F1+F2+F3;
         calificaion6 = Integer.toString(notafinal6);
-        JLNota6.setText(calificaion6);
+       
+         //nota actividad 7
+         
+        notafinal7 =G1+G2+G3+G4;
+        calificaion7 = Integer.toString(notafinal7);
+      
+        
+         //nota actividad 8
+         
+        notafinal8 =H1+H2+H3+H4;
+        calificaion9 = String.valueOf(notafinal8);
+        
+        SumaTotal= notafinal1+notafinal2+notafinal3+notafinal4+notafinal5+notafinal6+notafinal7+notafinal8;
+        
+        SumaTotal = SumaTotal*0.29411;
+        BigDecimal bd = new BigDecimal(SumaTotal).setScale(1,RoundingMode.HALF_UP);
+        calificaion9  = String.valueOf(bd);
         
         
         
+       FrmModulos.JLN3.setText("1");
+       if(FrmModulos.JLN1.getText().equals("1") && FrmModulos.JLN2.getText().equals("1")){
+           l1= 99;
+           FrmModulos.JBFin.setEnabled(true);
+           FrmModulos.JLPorcentaje.setText("100%");
+        }else if(FrmModulos.JLN1.getText().equals("1") || FrmModulos.JLN2.getText().equals("1") ){
+           l1= 66;
+           FrmModulos.JLPorcentaje.setText("66%");
+        }else{
+           l1=33;
+           FrmModulos.JLPorcentaje.setText("33%");
+        }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+       Barra.setValue(l1);
+       this.setVisible(false);
+      
+      
+       metodos.LlenarNotaLenguaje(FrmModulos.LBCorreo.getText(),calificaion9);
+        
+    }//GEN-LAST:event_JBFinalizarActionPerformed
 
     private void jLabel12MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseDragged
         if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
@@ -1344,29 +1847,17 @@ public class FrmLenguaje extends javax.swing.JFrame {
       }
     }//GEN-LAST:event_jLabel19MouseReleased
 
-    private void JB1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB1MouseDragged
-        JB1.setLayout(new BorderLayout());
-            JB1.setLocation(JB1.getLocation().x+ evt.getX() - JB1.getWidth()/2 ,
-            JB1.getLocation().y+ evt.getY() - JB1.getHeight());
-           
-           
-           if(JB1.getLocation().x <150 && JB1.getLocation().x >120  && JB1.getLocation().y >150  &&  JB1.getLocation().y <170  ){
-              n2 = 1;
-           }else{
-               n2=0;
-           }
-             JB1.repaint();
-            
-                    
-    }//GEN-LAST:event_JB1MouseDragged
-
     private void JBPalabra1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JBPalabra1MouseDragged
        if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
             
             jPanel4.setLayout(new BorderLayout());
             JBPalabra1.setLocation(JBPalabra1.getLocation().x+ evt.getX() - JBPalabra1.getWidth()/2 ,
             JBPalabra1.getLocation().y+ evt.getY() - JBPalabra1.getHeight());
-            //jLabel3.setText("("+JBPalabra1.getLocation().x+","+JBPalabra1.getLocation().y+")") ;
+            if(JBPalabra1.getLocation().x <510 && JBPalabra1.getLocation().x >419  && JBPalabra1.getLocation().y >259  &&  JBPalabra1.getLocation().y <591 || JBPalabra1.getLocation().x <781 && JBPalabra1.getLocation().x >689  && JBPalabra1.getLocation().y >259  &&  JBPalabra1.getLocation().y <591   ){
+              C11 = -0.5f;
+           }else{
+              C11=0;
+           }
          
              JBPalabra1.repaint();
             
@@ -1382,7 +1873,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
             if(JBPalabra2.getLocation().x <510 && JBPalabra2.getLocation().x >419  && JBPalabra2.getLocation().y >259  &&  JBPalabra2.getLocation().y <591  ){
               C1 = 0.5f;
            }else{
-               C1=0;
+              C1=0;
            }
            
              JBPalabra2.repaint();
@@ -1529,7 +2020,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
             jPanel4.setLayout(new BorderLayout());
             JBPalabra11.setLocation(JBPalabra11.getLocation().x+ evt.getX() - JBPalabra11.getWidth()/2 ,
             JBPalabra11.getLocation().y+ evt.getY() - JBPalabra11.getHeight());
-           
+           if(JBPalabra1.getLocation().x <510 && JBPalabra1.getLocation().x >419  && JBPalabra1.getLocation().y >259  &&  JBPalabra1.getLocation().y <591 || JBPalabra1.getLocation().x <781 && JBPalabra1.getLocation().x >689  && JBPalabra1.getLocation().y >259  &&  JBPalabra1.getLocation().y <591   ){
+              C12 = -0.5f;
+           }else{
+              C12=0;
+           }
              JBPalabra11.repaint();
             
             } 
@@ -1642,7 +2137,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
              if (jPanel6.getLocation().x <748 && jPanel6.getLocation().x >688 && jPanel6.getLocation().y >352  &&  jPanel6.getLocation().y <388  ){
               jPanel6.setBackground(Color.yellow);
            }
-            jLabel3.setText("("+ jPanel6.getLocation().x+","+ jPanel6.getLocation().y+")") ;
+            
          
               jPanel6.repaint();
             
@@ -1757,7 +2252,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
             JLI5.setLocation(JLI5.getLocation().x+ evt.getX() - JLI5.getWidth()/2 ,
             JLI5.getLocation().y+ evt.getY() - JLI5.getHeight());
            
-           jLabel3.setText("("+JLI5.getLocation().x+","+JLI5.getLocation().y+")") ;
+           
            if(JLI5.getLocation().x <480 && JLI5.getLocation().x >60  && JLI5.getLocation().y >180  &&  JLI5.getLocation().y <480  ){
               E3 = 1;
                
@@ -1784,7 +2279,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
             JLI1.setLocation(JLI1.getLocation().x+ evt.getX() - JLI1.getWidth()/2 ,
             JLI1.getLocation().y+ evt.getY() - JLI1.getHeight());
            
-           jLabel3.setText("("+JLI1.getLocation().x+","+JLI1.getLocation().y+")") ;
+           
            if(JLI1.getLocation().x <480 && JLI1.getLocation().x >60  && JLI1.getLocation().y >180  &&  JLI1.getLocation().y <480  ){
               E1 = 1;
                
@@ -1838,6 +2333,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
             jPanel10.setLayout(new BorderLayout());
             JLI2.setLocation(JLI2.getLocation().x+ evt.getX() - JLI2.getWidth()/2 ,
             JLI2.getLocation().y+ evt.getY() - JLI2.getHeight());
+            if(JLI2.getLocation().x <480 && JLI2.getLocation().x >60  && JLI2.getLocation().y >180  &&  JLI2.getLocation().y <480  ){
+              E5 = -1;
+           }else{
+              E5=0;
+           }
            
              JLI2.repaint();
              
@@ -1856,7 +2356,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
             jPanel10.setLayout(new BorderLayout());
             JLI4.setLocation(JLI4.getLocation().x+ evt.getX() - JLI4.getWidth()/2 ,
             JLI4.getLocation().y+ evt.getY() - JLI4.getHeight());
-           
+           if(JLI4.getLocation().x <480 && JLI4.getLocation().x >60  && JLI4.getLocation().y >180  &&  JLI4.getLocation().y <480  ){
+              E6 = -1;
+           }else{
+              E6=0;
+           }
              JLI4.repaint();
              
             } 
@@ -1937,11 +2441,178 @@ public class FrmLenguaje extends javax.swing.JFrame {
         F3=0;
     }//GEN-LAST:event_JBSujeto3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        FrmModulos v = new FrmModulos();
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void RB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB1ActionPerformed
+        if(RB1.isSelected()){
+            G1=0;
+        }
+    }//GEN-LAST:event_RB1ActionPerformed
+
+    private void RB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB2ActionPerformed
+        if(RB2.isSelected()){
+            G1=0;
+        }
+    }//GEN-LAST:event_RB2ActionPerformed
+
+    private void RB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB3ActionPerformed
+        if(RB3.isSelected()){
+            G1=1;
+        }
+    }//GEN-LAST:event_RB3ActionPerformed
+
+    private void RB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB4ActionPerformed
+         if(RB4.isSelected()){
+            G2=0;
+        }
+    }//GEN-LAST:event_RB4ActionPerformed
+
+    private void RB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB5ActionPerformed
+         if(RB5.isSelected()){
+            G2=1;
+        }
+    }//GEN-LAST:event_RB5ActionPerformed
+
+    private void RB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB6ActionPerformed
+        if(RB6.isSelected()){
+            G2=0;
+        }
+    }//GEN-LAST:event_RB6ActionPerformed
+
+    private void RB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB7ActionPerformed
+         if(RB7.isSelected()){
+            G3=0;
+        }
+    }//GEN-LAST:event_RB7ActionPerformed
+
+    private void RB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB8ActionPerformed
+         if(RB8.isSelected()){
+            G3=0;
+        }
+    }//GEN-LAST:event_RB8ActionPerformed
+
+    private void RB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB9ActionPerformed
+         if(RB9.isSelected()){
+            G3=1;
+        }
+    }//GEN-LAST:event_RB9ActionPerformed
+
+    private void RB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB10ActionPerformed
+         if(RB10.isSelected()){
+            G4=1;
+        }
+    }//GEN-LAST:event_RB10ActionPerformed
+
+    private void RB11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB11ActionPerformed
+         if(RB11.isSelected()){
+            G4=0;
+        }
+    }//GEN-LAST:event_RB11ActionPerformed
+
+    private void RB12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB12ActionPerformed
+         if(RB12.isSelected()){
+            G4=0;
+        }
+    }//GEN-LAST:event_RB12ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+         if(jComboBox1.getSelectedItem().equals("¿") && jComboBox2.getSelectedItem().equals("?" )){
+           H1=1;
+        }else{
+           H1=0;
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        if(jComboBox1.getSelectedItem().equals("¿") && jComboBox2.getSelectedItem().equals("?" )){
+           H1=1;
+        }else{
+           H1=0;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        if(jComboBox4.getSelectedItem().equals("¡") && jComboBox3.getSelectedItem().equals("!" )){
+           H2=1;
+        }else{
+           H2=0;
+        }
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        if(jComboBox4.getSelectedItem().equals("¡") && jComboBox3.getSelectedItem().equals("!" )){
+           H2=1;
+        }else{
+           H2=0;
+        }
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        if(jComboBox7.getSelectedItem().equals("¿") && jComboBox8.getSelectedItem().equals("?" )){
+           H3=1;
+        }else{
+           H3=0;
+        }
+    }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        if(jComboBox7.getSelectedItem().equals("¿") && jComboBox8.getSelectedItem().equals("?" )){
+           H3=1;
+        }else{
+           H3=0;
+        }
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        if(jComboBox6.getSelectedItem().equals("¿") && jComboBox5.getSelectedItem().equals("?" )){
+           H4=1;
+        }else{
+           H4=0;
+        }
+    }//GEN-LAST:event_jComboBox6ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        if(jComboBox6.getSelectedItem().equals("¿") && jComboBox5.getSelectedItem().equals("?" )){
+           H4=1;
+        }else{
+           H4=0;
+        }
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void JB1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB1MouseDragged
+
+    }//GEN-LAST:event_JB1MouseDragged
+
+    private void JBSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSiguienteActionPerformed
+        if(contador<8){
+        JBSiguiente.setText("Siguiente Pregunta");
+        contador ++;
+        jTabbedPane1.setSelectedIndex(contador); 
+        
+       }else{
+        
+        JBFinalizar.setVisible(true);
+        JBFinalizar.setEnabled(true);
+        JBSiguiente.setEnabled(false);
+        JBSiguiente.setVisible(false);
+        }
+        if(contador == 1){
+            JB1.setBackground(green);
+        }if(contador==2){
+            JB2.setBackground(green);
+        }if(contador==3){
+            JB3.setBackground(green);
+        }if(contador==4){
+            JB4.setBackground(green);
+        }if(contador==5){
+            JB5.setBackground(green);
+        }if(contador==6){
+            JB6.setBackground(green);
+        }if(contador==7){
+            JB7.setBackground(green);
+        }if(contador==8){
+            JB8.setBackground(green);
+        }
+
+    }//GEN-LAST:event_JBSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1979,8 +2650,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BotonG1;
+    private javax.swing.ButtonGroup BotonG2;
+    private javax.swing.ButtonGroup BotonG3;
+    private javax.swing.ButtonGroup BotonG4;
     private javax.swing.JButton JB1;
-    private javax.swing.JButton JB10;
     private javax.swing.JButton JB2;
     private javax.swing.JButton JB3;
     private javax.swing.JButton JB4;
@@ -1988,7 +2662,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JButton JB6;
     private javax.swing.JButton JB7;
     private javax.swing.JButton JB8;
-    private javax.swing.JButton JB9;
+    private javax.swing.JButton JBFinalizar;
     private javax.swing.JButton JBPalabra1;
     private javax.swing.JButton JBPalabra10;
     private javax.swing.JButton JBPalabra11;
@@ -2004,6 +2678,7 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JButton JBPredicado1;
     private javax.swing.JButton JBPredicado2;
     private javax.swing.JButton JBPredicado3;
+    private javax.swing.JButton JBSiguiente;
     private javax.swing.JButton JBSujeto1;
     private javax.swing.JButton JBSujeto2;
     private javax.swing.JButton JBSujeto3;
@@ -2013,6 +2688,8 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JLabel JLActividad4;
     private javax.swing.JLabel JLActividad5;
     private javax.swing.JLabel JLActividad6;
+    private javax.swing.JLabel JLActividad7;
+    private javax.swing.JLabel JLActividad8;
     private javax.swing.JLabel JLI1;
     private javax.swing.JLabel JLI2;
     private javax.swing.JLabel JLI3;
@@ -2029,30 +2706,42 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JLabel JLImagen5;
     private javax.swing.JLabel JLImagen6;
     private javax.swing.JLabel JLImagen7;
-    private javax.swing.JLabel JLNota1;
-    private javax.swing.JLabel JLNota2;
-    private javax.swing.JLabel JLNota3;
-    private javax.swing.JLabel JLNota4;
-    private javax.swing.JLabel JLNota5;
-    private javax.swing.JLabel JLNota6;
+    private javax.swing.JLabel JLLibreria;
+    private javax.swing.JLabel JLNiña;
+    private javax.swing.JLabel JLPelota;
+    private javax.swing.JLabel JLPersona;
     private javax.swing.JLabel JLPregunta1;
     private javax.swing.JLabel JLPregunta2;
     private javax.swing.JLabel JLPregunta3;
     private javax.swing.JLabel JLPregunta4;
     private javax.swing.JLabel JLPregunta5;
     private javax.swing.JLabel JLPregunta6;
+    private javax.swing.JLabel JLPregunta7;
+    private javax.swing.JLabel JLPregunta8;
     private javax.swing.JLabel JLT1;
     private javax.swing.JLabel JLT2;
     private javax.swing.JLabel JLT3;
+    private javax.swing.JLabel JLTexto;
     private javax.swing.JLabel JLTexto1;
     private javax.swing.JLabel JLTexto2;
     private javax.swing.JLabel JLTexto3;
     private javax.swing.JLabel JLTexto4;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel JLTienda;
+    private javax.swing.JRadioButton RB1;
+    private javax.swing.JRadioButton RB10;
+    private javax.swing.JRadioButton RB11;
+    private javax.swing.JRadioButton RB12;
+    private javax.swing.JRadioButton RB2;
+    private javax.swing.JRadioButton RB3;
+    private javax.swing.JRadioButton RB4;
+    private javax.swing.JRadioButton RB5;
+    private javax.swing.JRadioButton RB6;
+    private javax.swing.JRadioButton RB7;
+    private javax.swing.JRadioButton RB8;
+    private javax.swing.JRadioButton RB9;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBoxA;
     private javax.swing.JCheckBox jCheckBoxC;
     private javax.swing.JCheckBox jCheckBoxE;
@@ -2063,6 +2752,14 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxQ;
     private javax.swing.JCheckBox jCheckBoxR;
     private javax.swing.JCheckBox jCheckBoxZ;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2087,8 +2784,23 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2097,7 +2809,11 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2105,12 +2821,12 @@ public class FrmLenguaje extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }

@@ -6,9 +6,16 @@
 
 package examenes;
 
+import MetodosSQL.MetodosSQL;
+import static examenes.FrmModulos.Barra;
+import static examenes.FrmModulos.JBFin;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
+import static java.awt.Color.green;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -36,14 +43,31 @@ public class FrmMatematicas extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(JLN2,"src/imagenes/8.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLN3,"src/imagenes/2.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(JLN4,"src/imagenes/5.png");
-        
-         rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo1,"src/imagenes/EQUILATERO.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo2,"src/imagenes/Isosceles.png");
-         rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo3,"src/imagenes/Escaleno.png");
-        
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo1,"src/imagenes/EQUILATERO.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo2,"src/imagenes/Isosceles.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLTriangulo3,"src/imagenes/Escaleno.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLRueda,"src/imagenes/rueda.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLCubo,"src/imagenes/cubo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/imagenes/celeste.jpg");
+       
      
-        
+        JBFinalizar.setVisible(false);
+        JBFinalizar.setEnabled(false);
+        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(3, false);
+        jTabbedPane1.setEnabledAt(4, false);
+        jTabbedPane1.setEnabledAt(5, false);
+        jTabbedPane1.setEnabledAt(6, false);
+        jTabbedPane1.setEnabledAt(7, false);
+        jTabbedPane1.setEnabledAt(8, false);
     }
+    MetodosSQL metodos = new MetodosSQL(); 
+    int contador =0;
+    int m1=0;
+    double SumaTotal =0;
+   
     // nota 1
     int notafinal1 =0;
     int A1=0;
@@ -86,6 +110,25 @@ public class FrmMatematicas extends javax.swing.JFrame {
     int F2=0;
     int F3=0;
     
+    //nota 7
+    int notafinal7=0;
+    int G1=0;
+    int G2=0;
+    int G3=0;
+    int G4=0;
+    int G5=0;
+    int G6=0;
+    int G7=0;
+    int G8=0;
+    int G9=0;
+    int G10=0;
+    
+    //nota 8
+    int notafinal8=0;
+    int H1=0;
+    int H2=0;
+    int H3=0;
+    
     
         
         
@@ -106,14 +149,17 @@ public class FrmMatematicas extends javax.swing.JFrame {
         JB6 = new javax.swing.JButton();
         JB7 = new javax.swing.JButton();
         JB8 = new javax.swing.JButton();
-        JB9 = new javax.swing.JButton();
         JB1 = new javax.swing.JButton();
         JB2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        JLNota1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        JB10 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JLPregunta1 = new javax.swing.JLabel();
         JLActividad1 = new javax.swing.JLabel();
@@ -227,71 +273,119 @@ public class FrmMatematicas extends javax.swing.JFrame {
         JPT3 = new javax.swing.JPanel();
         JPT2 = new javax.swing.JPanel();
         JPT1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        JLNota2 = new javax.swing.JLabel();
-        JLNota3 = new javax.swing.JLabel();
-        JLNota4 = new javax.swing.JLabel();
-        JLNota5 = new javax.swing.JLabel();
-        JLNota6 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        jPanel14 = new javax.swing.JPanel();
+        JLActividad7 = new javax.swing.JLabel();
+        JLPregunta7 = new javax.swing.JLabel();
+        N24 = new javax.swing.JComboBox<>();
+        N32 = new javax.swing.JComboBox<>();
+        N16 = new javax.swing.JComboBox<>();
+        N8 = new javax.swing.JComboBox<>();
+        N80 = new javax.swing.JComboBox<>();
+        N40 = new javax.swing.JComboBox<>();
+        N72 = new javax.swing.JComboBox<>();
+        N64 = new javax.swing.JComboBox<>();
+        N56 = new javax.swing.JComboBox<>();
+        N48 = new javax.swing.JComboBox<>();
+        JLRueda = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        JLPregunta8 = new javax.swing.JLabel();
+        JLActividad8 = new javax.swing.JLabel();
+        JCB3 = new javax.swing.JComboBox<>();
+        JCB1 = new javax.swing.JComboBox<>();
+        JCB2 = new javax.swing.JComboBox<>();
+        JLCubo = new javax.swing.JLabel();
+        JBFinalizar = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        JBSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JB3.setText("Actividad # 3");
-        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, 30));
+        JB3.setBackground(new java.awt.Color(255, 255, 255));
+        JB3.setText("3");
+        jPanel1.add(JB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 50, 40));
 
-        JB4.setText("Actividad # 4");
-        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 110, 30));
+        JB4.setBackground(new java.awt.Color(255, 255, 255));
+        JB4.setText("4");
+        jPanel1.add(JB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 50, 40));
 
-        JB5.setText("Actividad # 5");
-        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 110, 30));
+        JB5.setBackground(new java.awt.Color(255, 255, 255));
+        JB5.setText("5");
+        jPanel1.add(JB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 50, 40));
 
-        JB6.setText("Actividad # 6");
-        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 110, 30));
+        JB6.setBackground(new java.awt.Color(255, 255, 255));
+        JB6.setText("6");
+        jPanel1.add(JB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 50, 40));
 
-        JB7.setText("Actividad # 7");
-        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 110, 30));
+        JB7.setBackground(new java.awt.Color(255, 255, 255));
+        JB7.setText("7");
+        jPanel1.add(JB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 50, 40));
 
-        JB8.setText("Actividad # 8");
-        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 110, 30));
+        JB8.setBackground(new java.awt.Color(255, 255, 255));
+        JB8.setText("8");
+        jPanel1.add(JB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 50, 40));
 
-        JB9.setText("Actividad # 9");
-        jPanel1.add(JB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 110, 30));
-
-        JB1.setText("Actividad # 1");
+        JB1.setBackground(new java.awt.Color(255, 255, 255));
+        JB1.setText("1");
         JB1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JB1MouseDragged(evt);
             }
         });
-        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 110, 30));
+        jPanel1.add(JB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 50, 40));
 
-        JB2.setText("Actividad # 2");
-        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 110, 30));
+        JB2.setBackground(new java.awt.Color(255, 255, 255));
+        JB2.setText("2");
+        jPanel1.add(JB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 50));
 
-        jLabel1.setText("listado de actividades");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, 40));
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        JLNota1.setText("jLabel2");
-        jPanel1.add(JLNota1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 60, 30));
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 70, 40));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setText("Indicaciones para poder desarrollar de manera eficiente el juego.");
+        jPanel24.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 850, 30));
 
-        JB10.setText("Actividad # 10");
-        jPanel1.add(JB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 110, 30));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setText("<html>2.-Leer cada pregunta antes de contestar.<html>");
+        jPanel24.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 720, 70));
 
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel25.setText("<html>5.-El juego tiene preguntas de forma secuencial, así que no se podrá retroceder.<html>");
+        jPanel24.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 720, 60));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel29.setText("<html>1.-No se permite el uso de celular, tablet u otro dispositivo tegnológico durante el juego.<html>");
+        jPanel24.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 720, 100));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("<html>3.-Si responde más de lo que se le indica en la pregunta su resultado se verá afectado.<html>");
+        jPanel24.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 720, 100));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel33.setText("<html>4.-Si responde con dos respuestas en una misma pregunta, su respuesta será anulada.<html>");
+        jPanel24.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 720, 100));
+
+        jTabbedPane1.addTab("tab0", jPanel24);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta1.setText("Arrastre el resultado correcto hacia la casilla que corresponda");
-        jPanel2.add(JLPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta1.setText("Arrastre el resultado correcto hacia la casilla que corresponda (una respuesta en cada cuadro)");
+        jPanel2.add(JLPregunta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 590, 25));
 
+        JLActividad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad1.setText("Actividad #1");
-        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel2.add(JLActividad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 100, 27));
 
         JPN3.setBackground(new java.awt.Color(255, 175, 150));
         JPN3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -410,13 +504,16 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta2.setText("Arrastre la figura correcta hacia la fracción que corresponda");
-        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta2.setText("Arrastre la figura correcta hacia la fracción que corresponda (una respuesta en cada cuadro)");
+        jPanel3.add(JLPregunta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 580, 25));
 
+        JLActividad2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad2.setText("Actividad #2");
-        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel3.add(JLActividad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 150, 130));
@@ -512,12 +609,15 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab2", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLActividad3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad3.setText("Actividad #3");
-        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel4.add(JLActividad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
-        JLPregunta3.setText("Identifica el cuerpo geométrico que tiene cada imagen y coloca la respuesta correcta.");
+        JLPregunta3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta3.setText("Identifica el cuerpo geométrico que tiene cada imagen y coloca la respuesta correcta (una respuesta en cada cuadro)");
         jPanel4.add(JLPregunta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -536,7 +636,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 120, 40));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel27.setText(" PIRAMIDE");
+        jLabel27.setText(" PIRÁMIDE");
         jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel27.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -626,17 +726,22 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab3", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLActividad4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad4.setText("Actividad #4");
-        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel5.add(JLActividad4, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 120, 27));
 
+        JLPregunta4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta4.setText("Selecciona la respuesta correcta");
-        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel5.add(JLPregunta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 240, 25));
 
+        JP1.setBackground(new java.awt.Color(255, 255, 255));
         JP1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JP1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JB2P1.setBackground(new java.awt.Color(255, 255, 255));
         JB2P1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB2P1.setText("4");
         JB2P1.addActionListener(new java.awt.event.ActionListener() {
@@ -646,6 +751,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP1.add(JB2P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 100, 80));
 
+        JB3P1.setBackground(new java.awt.Color(255, 255, 255));
         JB3P1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB3P1.setText("10");
         JB3P1.addActionListener(new java.awt.event.ActionListener() {
@@ -658,6 +764,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         JLN1.setText("jLabel2");
         JP1.add(JLN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 170, 110));
 
+        JB1P1.setBackground(new java.awt.Color(255, 255, 255));
         JB1P1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB1P1.setText("2");
         JB1P1.addActionListener(new java.awt.event.ActionListener() {
@@ -669,9 +776,11 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel5.add(JP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, 220));
 
+        JP2.setBackground(new java.awt.Color(255, 255, 255));
         JP2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JP2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JB2P2.setBackground(new java.awt.Color(255, 255, 255));
         JB2P2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB2P2.setText("10");
         JB2P2.addActionListener(new java.awt.event.ActionListener() {
@@ -681,6 +790,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP2.add(JB2P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 100, 80));
 
+        JB3P2.setBackground(new java.awt.Color(255, 255, 255));
         JB3P2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB3P2.setText("6");
         JB3P2.addActionListener(new java.awt.event.ActionListener() {
@@ -690,6 +800,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP2.add(JB3P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 100, 80));
 
+        JB1P2.setBackground(new java.awt.Color(255, 255, 255));
         JB1P2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB1P2.setText("8");
         JB1P2.addActionListener(new java.awt.event.ActionListener() {
@@ -704,9 +815,11 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel5.add(JP2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, 220));
 
+        JP3.setBackground(new java.awt.Color(255, 255, 255));
         JP3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JP3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JB2P3.setBackground(new java.awt.Color(255, 255, 255));
         JB2P3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB2P3.setText("7");
         JB2P3.addActionListener(new java.awt.event.ActionListener() {
@@ -716,6 +829,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP3.add(JB2P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 100, 80));
 
+        JB3P3.setBackground(new java.awt.Color(255, 255, 255));
         JB3P3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB3P3.setText("2");
         JB3P3.addActionListener(new java.awt.event.ActionListener() {
@@ -725,6 +839,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP3.add(JB3P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 100, 80));
 
+        JB1P3.setBackground(new java.awt.Color(255, 255, 255));
         JB1P3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB1P3.setText("1");
         JB1P3.addActionListener(new java.awt.event.ActionListener() {
@@ -739,9 +854,11 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel5.add(JP3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, 220));
 
+        JP4.setBackground(new java.awt.Color(255, 255, 255));
         JP4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JP4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JB2P4.setBackground(new java.awt.Color(255, 255, 255));
         JB2P4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB2P4.setText("5");
         JB2P4.addActionListener(new java.awt.event.ActionListener() {
@@ -751,6 +868,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP4.add(JB2P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 100, 80));
 
+        JB3P4.setBackground(new java.awt.Color(255, 255, 255));
         JB3P4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB3P4.setText("3");
         JB3P4.addActionListener(new java.awt.event.ActionListener() {
@@ -760,6 +878,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         JP4.add(JB3P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 100, 80));
 
+        JB1P4.setBackground(new java.awt.Color(255, 255, 255));
         JB1P4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JB1P4.setText("10");
         JB1P4.addActionListener(new java.awt.event.ActionListener() {
@@ -776,14 +895,18 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab4", jPanel5);
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JLPregunta5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLPregunta5.setText("Completa utilizando < menor que, > mayor que");
-        jPanel6.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        jPanel6.add(JLPregunta5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 350, 25));
 
+        JLActividad5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad5.setText("Actividad #5");
-        jPanel6.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel6.add(JLActividad5, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 130, 27));
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -792,6 +915,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel6.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 140, 120));
 
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -810,6 +934,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel6.add(CB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 90, 80));
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -828,6 +953,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel6.add(CB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 90, 80));
 
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -836,6 +962,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel6.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 160, 140, 120));
 
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -854,6 +981,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel6.add(CB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 90, 80));
 
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -862,6 +990,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jPanel6.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 390, 140, 120));
 
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
         jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -880,6 +1009,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel6.add(CB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 90, 80));
 
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -902,13 +1032,16 @@ public class FrmMatematicas extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab5", jPanel6);
 
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLPregunta6.setText("Identifique el tipo de triángulos según corresponda.");
-        jPanel9.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, -1, 25));
+        JLPregunta6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta6.setText("Identifique el tipo de triángulos según corresponda (una respuesta en cada cuadro)");
+        jPanel9.add(JLPregunta6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 530, 25));
 
+        JLActividad6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         JLActividad6.setText("Actividad #6");
-        jPanel9.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 77, 27));
+        jPanel9.add(JLActividad6, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
 
         JLTriangulo1.setText("jLabel19");
         jPanel9.add(JLTriangulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 180, 180));
@@ -919,6 +1052,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         JLTriangulo3.setText("jLabel19");
         jPanel9.add(JLTriangulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 220, 180));
 
+        JBT1.setBackground(new java.awt.Color(204, 255, 255));
         JBT1.setText("EQUILÁTERO");
         JBT1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -932,6 +1066,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel9.add(JBT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 130, 40));
 
+        JBT5.setBackground(new java.awt.Color(255, 204, 204));
         JBT5.setText("ISÓSCELES");
         JBT5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -945,6 +1080,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel9.add(JBT5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 130, 40));
 
+        JBT2.setBackground(new java.awt.Color(204, 204, 255));
         JBT2.setText("RECTÁNGULO");
         JBT2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -958,6 +1094,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel9.add(JBT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 130, 40));
 
+        JBT4.setBackground(new java.awt.Color(204, 255, 204));
         JBT4.setText("OBTUSÁNGULO");
         JBT4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -971,6 +1108,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel9.add(JBT4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, 130, 40));
 
+        JBT3.setBackground(new java.awt.Color(255, 204, 255));
         JBT3.setText("ESCALENO");
         JBT3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -984,54 +1122,215 @@ public class FrmMatematicas extends javax.swing.JFrame {
         });
         jPanel9.add(JBT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 130, 40));
 
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel9.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 340, 250));
 
+        JPT3.setBackground(new java.awt.Color(255, 255, 255));
         JPT3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel9.add(JPT3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 200, 90));
 
+        JPT2.setBackground(new java.awt.Color(255, 255, 255));
         JPT2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel9.add(JPT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 200, 90));
 
+        JPT1.setBackground(new java.awt.Color(255, 255, 255));
         JPT1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel9.add(JPT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 200, 90));
 
         jTabbedPane1.addTab("tab6", jPanel9);
 
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLActividad7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad7.setText("Actividad #7");
+        jPanel14.add(JLActividad7, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 100, 27));
+
+        JLPregunta7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta7.setText("Indique el resultado correcto de la multiplicación");
+        jPanel14.add(JLPregunta7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 320, 25));
+
+        N24.setBackground(new java.awt.Color(0, 153, 255));
+        N24.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N24.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N24ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N24, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 50));
+
+        N32.setBackground(new java.awt.Color(0, 153, 255));
+        N32.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N32.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N32ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N32, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, -1, 50));
+
+        N16.setBackground(new java.awt.Color(0, 153, 255));
+        N16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N16ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, 50));
+
+        N8.setBackground(new java.awt.Color(0, 153, 255));
+        N8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N8ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, 50));
+
+        N80.setBackground(new java.awt.Color(0, 153, 255));
+        N80.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N80.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N80.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N80ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N80, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, -1, 50));
+
+        N40.setBackground(new java.awt.Color(0, 153, 255));
+        N40.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N40.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N40ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N40, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, -1, 50));
+
+        N72.setBackground(new java.awt.Color(0, 153, 255));
+        N72.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N72.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N72ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N72, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, 50));
+
+        N64.setBackground(new java.awt.Color(0, 153, 255));
+        N64.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N64.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N64.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N64ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N64, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, 50));
+
+        N56.setBackground(new java.awt.Color(0, 153, 255));
+        N56.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N56.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N56ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N56, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, 50));
+
+        N48.setBackground(new java.awt.Color(0, 153, 255));
+        N48.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        N48.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "56", "16", "54", "32", "15", "63", "24", "80", "8", "64", "48", "73", "40", "72" }));
+        N48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N48ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(N48, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 470, -1, 50));
+
+        JLRueda.setText("jLabel19");
+        jPanel14.add(JLRueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 580, 480));
+
+        jTabbedPane1.addTab("tab7", jPanel14);
+
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JLPregunta8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPregunta8.setText("Seleccione la parte correcta del cubo según corresponda");
+        jPanel16.add(JLPregunta8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 49, 370, 25));
+
+        JLActividad8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLActividad8.setText("Actividad #8");
+        jPanel16.add(JLActividad8, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 11, 110, 27));
+
+        JCB3.setBackground(new java.awt.Color(255, 153, 0));
+        JCB3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JCB3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Cara", "Aristas", "Area", "Vértices", "Bases" }));
+        JCB3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB3ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(JCB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 580, 150, 40));
+
+        JCB1.setBackground(new java.awt.Color(255, 153, 0));
+        JCB1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JCB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Cara", "Aristas", "Area", "Vértices", "Bases" }));
+        JCB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(JCB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 150, 40));
+
+        JCB2.setBackground(new java.awt.Color(255, 153, 0));
+        JCB2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        JCB2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "?", "Cara", "Aristas", "Area", "Vértices", "Bases" }));
+        JCB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCB2ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(JCB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 150, 40));
+
+        JLCubo.setText("jLabel19");
+        jPanel16.add(JLCubo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 580, 480));
+
+        jTabbedPane1.addTab("tab8", jPanel16);
+
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 970, 720));
 
-        jButton1.setText("BOTON VERIFICAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBFinalizar.setBackground(new java.awt.Color(255, 126, 57));
+        JBFinalizar.setText("Finalizar Prueba");
+        JBFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBFinalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 150, 50));
+        jPanel1.add(JBFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 50));
 
-        JLNota2.setText("jLabel26");
-        jPanel1.add(JLNota2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 40, 30));
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Banco de Preguntas");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 140, 40));
 
-        JLNota3.setText("jLabel26");
-        jPanel1.add(JLNota3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 40, 30));
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 220, 170));
 
-        JLNota4.setText("jLabel26");
-        jPanel1.add(JLNota4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 40, 30));
-
-        JLNota5.setText("jLabel26");
-        jPanel1.add(JLNota5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 40, 30));
-
-        JLNota6.setText("jLabel26");
-        jPanel1.add(JLNota6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 40, 30));
-
-        jButton5.setText("regresar a modulos ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        JBSiguiente.setBackground(new java.awt.Color(255, 126, 57));
+        JBSiguiente.setText("Empezar ");
+        JBSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                JBSiguienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 160, 40));
+        jPanel1.add(JBSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 150, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1260, 820));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1045,7 +1344,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
             JL1_2.setLocation(JL1_2.getLocation().x+ evt.getX() - JL1_2.getWidth()/2 ,
             JL1_2.getLocation().y+ evt.getY() - JL1_2.getHeight());
            
-           jLabel3.setText("("+JL1_2.getLocation().x+","+JL1_2.getLocation().y+")") ;
+           
            if(JL1_2.getLocation().x <90 && JL1_2.getLocation().x >40  && JL1_2.getLocation().y >100  &&  JL1_2.getLocation().y <140  ){
               B1 = 1;
                
@@ -1091,53 +1390,117 @@ public class FrmMatematicas extends javax.swing.JFrame {
             
     }//GEN-LAST:event_JL1_2MouseReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinalizarActionPerformed
+        
         String calificaion1 =null;
         String calificaion2 =null;
         String calificaion3 =null;
         String calificaion4 =null;
         String calificaion5 =null;
         String calificaion6 =null;
+        String calificaion8 =null;
+        String calificaion9 =null;
+        
+        
+        
+        
         //nota actividad 1
        
         notafinal1= A1+A2+A3+A4+A5;
         calificaion1 = Integer.toString(notafinal1);
-        JLNota1.setText(calificaion1);
+        
         
         //nota actividad 2
         notafinal2 =B1+B2+B3+B4;
         calificaion2 = Integer.toString(notafinal2);
-        JLNota2.setText(calificaion2);
+        
         
         
         //nota actividad 3
         
         notafinal3 =C1+C2+C3+C4;
         calificaion3 = Integer.toString(notafinal3);
-        JLNota3.setText(calificaion3);
+        
         
          //nota actividad 4
          
         notafinal4 =D1+D2+D3+D4;
         calificaion4 = Integer.toString(notafinal4);
-        JLNota4.setText(calificaion4);
+        
         
         
         //nota actividad 5
          
         notafinal5 =E1+E2+E3+E4;
         calificaion5 = Integer.toString(notafinal5);
-        JLNota5.setText(calificaion5);
+        
         
         //nota actividad 6
          
         notafinal6 =F1+F2+F3;
         calificaion6 = Integer.toString(notafinal6);
-        JLNota6.setText(calificaion6);
+       
+        
+         //nota actividad 7
+         
+        notafinal7 =G1+G2+G3+G4+G5+G6+G7+G8+G9+G10;
+        calificaion9 = Integer.toString(notafinal7);
         
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+         //nota actividad 8
+         
+        notafinal8 =H1+H2+H3;
+        calificaion8 = Integer.toString(notafinal8);
+        
+        
+        SumaTotal= notafinal1+notafinal2+notafinal3+notafinal4+notafinal5+notafinal6+notafinal7+notafinal8;
+        
+        SumaTotal = SumaTotal*0.27027;
+        BigDecimal bd = new BigDecimal(SumaTotal).setScale(1,RoundingMode.HALF_UP);
+        calificaion9  = String.valueOf(bd);
+       
+        
+       
+      
+      FrmModulos.JLN1.setText("1");
+       if(FrmModulos.JLN2.getText().equals("1") && FrmModulos.JLN3.getText().equals("1")){
+           FrmModulos.JLPorcentaje.setText("100%");
+           m1= 99;
+           FrmModulos.JBFin.setEnabled(true);
+           
+        }else if(FrmModulos.JLN2.getText().equals("1") || FrmModulos.JLN3.getText().equals("1") ){
+           FrmModulos.JLPorcentaje.setText("66%");
+           m1= 66;
+        }else{
+           FrmModulos.JLPorcentaje.setText("33%");
+           m1=33;
+        }
+        
+       Barra.setValue(m1);
+       this.setVisible(false);
+       
+       
+               
+       /*if(!JLN1.getText().equals("0")){
+           v.val = +33.33f;
+          
+       }*/
+       
+      /*if(JLN1.getText().equals("0")){
+           n1= 33;
+        }if(JLN2.getText().equals("0")){
+            n2=33;
+        }if(JLN3.getText().equals("0")){
+             n3=33;
+        }
+        NT=n1+n2+n3;
+      
+      this.setVisible(false);
+        */
+      metodos.LlenarNotaMatematica(FrmModulos.LBCorreo.getText(),calificaion9);
+      
+    }//GEN-LAST:event_JBFinalizarActionPerformed
 
     private void JL2_3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JL2_3MouseDragged
         if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
@@ -1223,7 +1586,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
             jPanel2.setLayout(new BorderLayout());
              JPN3.setLocation( JPN3.getLocation().x+ evt.getX() -  JPN3.getWidth()/2 ,
              JPN3.getLocation().y+ evt.getY() -  JPN3.getHeight());
-             jLabel3.setText("("+JPN3.getLocation().x+","+JPN3.getLocation().y+")") ;
+             
              if (JPN3.getLocation().x <301 && JPN3.getLocation().x >266  && JPN3.getLocation().y >334  &&  JPN3.getLocation().y <354  ){
               
               A1=1;
@@ -1367,7 +1730,7 @@ public class FrmMatematicas extends javax.swing.JFrame {
             jLabel31.setLocation(jLabel31.getLocation().x+ evt.getX() - jLabel31.getWidth()/2 ,
             jLabel31.getLocation().y+ evt.getY() - jLabel31.getHeight());
            
-          jLabel3.setText("("+jLabel31.getLocation().x+","+jLabel31.getLocation().y+")") ;
+          
            if(jLabel31.getLocation().x <440 && jLabel31.getLocation().x >330  && jLabel31.getLocation().y >240  &&  jLabel31.getLocation().y <290  ){
                C1 = 1;
              
@@ -1608,7 +1971,7 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
             JBT1.setLocation(JBT1.getLocation().x+ evt.getX() - JBT1.getWidth()/2 ,
             JBT1.getLocation().y+ evt.getY() - JBT1.getHeight());
            
-          jLabel3.setText("("+JBT1.getLocation().x+","+JBT1.getLocation().y+")") ;
+          
            if(JBT1.getLocation().x <810 && JBT1.getLocation().x >740  && JBT1.getLocation().y >460  &&  JBT1.getLocation().y <510  ){
               F1 = 1;
              
@@ -1705,11 +2068,149 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
       }
     }//GEN-LAST:event_JBT4MouseReleased
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        FrmModulos v = new FrmModulos();
-        v.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void N16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N16ActionPerformed
+        if(N16.getSelectedItem().equals("16")){
+            G1=1;
+        }else{
+            G1=0;
+        }
+    }//GEN-LAST:event_N16ActionPerformed
+
+    private void N24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N24ActionPerformed
+       if(N24.getSelectedItem().equals("24")){
+            G2=1;
+        }else{
+            G2=0;
+        }
+            
+    }//GEN-LAST:event_N24ActionPerformed
+
+    private void N8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N8ActionPerformed
+        if(N8.getSelectedItem().equals("8")){
+            G3=1;
+        }else{
+            G3=0;
+        }
+    }//GEN-LAST:event_N8ActionPerformed
+
+    private void N32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N32ActionPerformed
+        if(N32.getSelectedItem().equals("32")){
+            G4=1;
+        }else{
+            G4=0;
+        }
+    }//GEN-LAST:event_N32ActionPerformed
+
+    private void N80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N80ActionPerformed
+        if(N80.getSelectedItem().equals("80")){
+            G5=1;
+        }else{
+            G5=0;
+        }
+    }//GEN-LAST:event_N80ActionPerformed
+
+    private void N40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N40ActionPerformed
+        if(N40.getSelectedItem().equals("40")){
+            G6=1;
+        }else{
+            G6=0;
+        }
+    }//GEN-LAST:event_N40ActionPerformed
+
+    private void N72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N72ActionPerformed
+        if(N72.getSelectedItem().equals("72")){
+            G7=1;
+        }else{
+            G7=0;
+        }
+    }//GEN-LAST:event_N72ActionPerformed
+
+    private void N48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N48ActionPerformed
+        if(N48.getSelectedItem().equals("48")){
+            G8=1;
+        }else{
+            G8=0;
+        }
+    }//GEN-LAST:event_N48ActionPerformed
+
+    private void N64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N64ActionPerformed
+       if(N64.getSelectedItem().equals("64")){
+            G9=1;
+        }else{
+            G9=0;
+        }
+    }//GEN-LAST:event_N64ActionPerformed
+
+    private void N56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N56ActionPerformed
+        if(N56.getSelectedItem().equals("56")){
+            G10=1;
+        }else{
+            G10=0;
+        }
+    }//GEN-LAST:event_N56ActionPerformed
+
+    private void JCB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB3ActionPerformed
+        if(JCB3.getSelectedItem().equals("Cara")){
+            H1=1;
+        }else{
+            H1=0;
+        }
+    }//GEN-LAST:event_JCB3ActionPerformed
+
+    private void JCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB1ActionPerformed
+        if(JCB1.getSelectedItem().equals("Aristas")){
+            H2=1;
+        }else{
+            H2=0;
+        }
+    }//GEN-LAST:event_JCB1ActionPerformed
+
+    private void JCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCB2ActionPerformed
+        if(JCB2.getSelectedItem().equals("Vertices")){
+           H3=1;
+        }else{
+            H3=0;
+        }
+    }//GEN-LAST:event_JCB2ActionPerformed
+
+    private void JBSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSiguienteActionPerformed
+       if(contador<8){
+        JBSiguiente.setText("Siguiente Pregunta");
+        contador ++;
+        jTabbedPane1.setSelectedIndex(contador); 
+        
+       }else{
+        
+        JBFinalizar.setVisible(true);
+        JBFinalizar.setEnabled(true);
+        JBSiguiente.setEnabled(false);
+        JBSiguiente.setVisible(false);
+       
+   
+    }
+    if(contador == 1){
+        JB1.setBackground(green);
+    }if(contador==2){
+        JB2.setBackground(green);
+    }if(contador==3){
+        JB3.setBackground(green);
+    }if(contador==4){
+        JB4.setBackground(green);
+    }if(contador==5){
+        JB5.setBackground(green);
+    }if(contador==6){
+        JB6.setBackground(green);
+    }if(contador==7){
+        JB7.setBackground(green);
+    }if(contador==8){
+        JB8.setBackground(green);
+    }
+    
+    
+        
+    
+        
+    }//GEN-LAST:event_JBSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1753,7 +2254,6 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JComboBox<String> CB3;
     private javax.swing.JComboBox<String> CB4;
     private javax.swing.JButton JB1;
-    private javax.swing.JButton JB10;
     private javax.swing.JButton JB1P1;
     private javax.swing.JButton JB1P2;
     private javax.swing.JButton JB1P3;
@@ -1773,12 +2273,16 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JButton JB6;
     private javax.swing.JButton JB7;
     private javax.swing.JButton JB8;
-    private javax.swing.JButton JB9;
+    private javax.swing.JButton JBFinalizar;
+    private javax.swing.JButton JBSiguiente;
     private javax.swing.JButton JBT1;
     private javax.swing.JButton JBT2;
     private javax.swing.JButton JBT3;
     private javax.swing.JButton JBT4;
     private javax.swing.JButton JBT5;
+    private javax.swing.JComboBox<String> JCB1;
+    private javax.swing.JComboBox<String> JCB2;
+    private javax.swing.JComboBox<String> JCB3;
     private javax.swing.JLabel JL;
     private javax.swing.JLabel JL1;
     private javax.swing.JLabel JL1_2;
@@ -1796,7 +2300,10 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JLabel JLActividad4;
     private javax.swing.JLabel JLActividad5;
     private javax.swing.JLabel JLActividad6;
+    private javax.swing.JLabel JLActividad7;
+    private javax.swing.JLabel JLActividad8;
     private javax.swing.JLabel JLCono;
+    private javax.swing.JLabel JLCubo;
     private javax.swing.JLabel JLImagen1;
     private javax.swing.JLabel JLLeche;
     private javax.swing.JLabel JLN1;
@@ -1804,12 +2311,6 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JLabel JLN3;
     private javax.swing.JLabel JLN4;
     private javax.swing.JLabel JLNaranja;
-    private javax.swing.JLabel JLNota1;
-    private javax.swing.JLabel JLNota2;
-    private javax.swing.JLabel JLNota3;
-    private javax.swing.JLabel JLNota4;
-    private javax.swing.JLabel JLNota5;
-    private javax.swing.JLabel JLNota6;
     private javax.swing.JLabel JLPiramide;
     private javax.swing.JLabel JLPregunta1;
     private javax.swing.JLabel JLPregunta2;
@@ -1817,6 +2318,9 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JLabel JLPregunta4;
     private javax.swing.JLabel JLPregunta5;
     private javax.swing.JLabel JLPregunta6;
+    private javax.swing.JLabel JLPregunta7;
+    private javax.swing.JLabel JLPregunta8;
+    private javax.swing.JLabel JLRueda;
     private javax.swing.JLabel JLTriangulo1;
     private javax.swing.JLabel JLTriangulo2;
     private javax.swing.JLabel JLTriangulo3;
@@ -1833,8 +2337,16 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JPanel JPT1;
     private javax.swing.JPanel JPT2;
     private javax.swing.JPanel JPT3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> N16;
+    private javax.swing.JComboBox<String> N24;
+    private javax.swing.JComboBox<String> N32;
+    private javax.swing.JComboBox<String> N40;
+    private javax.swing.JComboBox<String> N48;
+    private javax.swing.JComboBox<String> N56;
+    private javax.swing.JComboBox<String> N64;
+    private javax.swing.JComboBox<String> N72;
+    private javax.swing.JComboBox<String> N8;
+    private javax.swing.JComboBox<String> N80;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1845,17 +2357,23 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1867,7 +2385,9 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
@@ -1875,6 +2395,8 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1884,5 +2406,7 @@ if(evt.getModifiersEx() == MouseEvent.BUTTON1_DOWN_MASK){
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+
+    
 
 }

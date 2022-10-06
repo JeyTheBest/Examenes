@@ -8,6 +8,7 @@ package examenes;
 import MetodosSQL.MetodosSQL;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.Toolkit;
 import static javafx.scene.paint.Color.color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -26,15 +27,18 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
+        //setIconImage(new ImageIcon(getClass().getResource("/src/imagenes/UG.png")).getImage());
         this.setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(JLInicio,"src/imagenes/inicio.png");
         
         
-      //  rsscalelabel.RSScaleLabel.setScaleLabel(JLColegio,"src/imagenes/cole.png");
-        
-        
-       // btnIngresar.setIcon(setIcon("/Imagenes/inicio.png", btnIngresar));
     }
+    /*@Override
+    public Image getIconImage(){
+        
+    Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/UG.png"));
+    return retValue;
+}*/
 MetodosSQL metodos = new MetodosSQL();
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +56,8 @@ MetodosSQL metodos = new MetodosSQL();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 204));
+        setIconImage(getIconImage());
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

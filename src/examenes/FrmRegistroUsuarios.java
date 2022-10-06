@@ -5,16 +5,23 @@
  */
 package examenes;
 
+import MetodosSQL.ConexionBD;
 import MetodosSQL.MetodosSQL;
+import static MetodosSQL.MetodosSQL.conexion;
+import static examenes.FrmModulos.Barra;
+import static examenes.FrmProfesor.JTEstudiantes;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,6 +37,7 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
        // super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        this.setResizable(false);
         JlCorreo.setVisible(false);
         BtGuardar.setEnabled(false);
         rsscalelabel.RSScaleLabel.setScaleLabel(JLImagen,"src/imagenes/mando.jpg");
@@ -45,7 +53,7 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     
-    
+   
     
    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -53,7 +61,6 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         BtGuardar = new javax.swing.JButton();
-        BtRegresar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
         txtNombres = new javax.swing.JTextField();
@@ -80,17 +87,7 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
                 BtGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(BtGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 150, 31));
-
-        BtRegresar.setBackground(new java.awt.Color(0, 204, 255));
-        BtRegresar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtRegresar.setText("Regresar");
-        BtRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtRegresarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 88, 31));
+        jPanel2.add(BtGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 150, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Apellidos");
@@ -106,21 +103,21 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
                 txtApellidosKeyTyped(evt);
             }
         });
-        jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 160, 25));
+        jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, 30));
 
         txtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombresKeyTyped(evt);
             }
         });
-        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 160, 25));
+        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 160, 30));
 
         txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCorreoFocusLost(evt);
             }
         });
-        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 160, -1));
+        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Correo");
@@ -136,7 +133,7 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
 
         JlCorreo.setForeground(new java.awt.Color(255, 0, 0));
         JlCorreo.setText("correo invalido ");
-        jPanel2.add(JlCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 100, 20));
+        jPanel2.add(JlCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 100, 20));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 420));
         getContentPane().add(JLImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 630, 420));
@@ -168,12 +165,6 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosActionPerformed
 
-    private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
-        FrmLogin ventana =  new FrmLogin();
-        ventana.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtRegresarActionPerformed
-
     private void txtNombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombresKeyTyped
         char c = evt.getKeyChar();
 
@@ -182,29 +173,84 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombresKeyTyped
 
     private void BtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGuardarActionPerformed
-
+        int m1=0; 
        //boolean nombre = metodos.ValidarLetras(txtNombres.getText());
        // boolean apellido = metodos.ValidarLetras(txtApellidos.getText());
-
-        if (txtNombres.getText().equals("") || txtApellidos.getText().equals("") || txtCorreo.getText().equals("") ){
+       if (txtCorreo.getText().equals("administrador@hotmail.com") ){
+            JOptionPane.showMessageDialog(null, "bienvenido");
+            FrmProfesor v = new FrmProfesor();
+            v.setVisible(true);
+            this.dispose();
+            
+        }else if(txtNombres.getText().equals("") || txtApellidos.getText().equals("") || txtCorreo.getText().equals("") ){
             JOptionPane.showMessageDialog(null, "Faltan campos por llenar ");
         }else{
-            //if (metodos.ValidarUsuarioRepetido(txtUsuario.getText())==0 ){
+            if (metodos.ValidarCorreoRepetido(txtCorreo.getText())==0 ){
 
                 metodos.guardar(txtNombres.getText(),txtApellidos.getText(), txtCorreo.getText());
                 JOptionPane.showMessageDialog(null, "guardado ");
+                FrmModulos ventana = new FrmModulos();
+                FrmModulos.LBCorreo.setText(txtCorreo.getText());
+                ventana.setVisible(true);
+                this.dispose();
+                
+
+            } else{
+                JOptionPane.showMessageDialog(null, "el correo ya existe bienvenido ");
+                FrmModulos ventana = new FrmModulos();
+                FrmModulos.LBCorreo.setText(txtCorreo.getText());
+               String Buscar_Nota = MetodosSQL.BuscarNotaMatematica(txtCorreo.getText());
+               String Buscar_Nota1 = MetodosSQL.BuscarNotaSociales(txtCorreo.getText());
+               String Buscar_Nota2 = MetodosSQL.BuscarNotaLenguaje(txtCorreo.getText());
+              
+               double entero = Double.parseDouble(Buscar_Nota);
+               double entero1 = Double.parseDouble(Buscar_Nota1);
+               double entero2 = Double.parseDouble(Buscar_Nota2);
+               
+             // double Promedio = (entero+entero1+entero2)/3;
+               
+               
+               if(entero >0){
+                    FrmModulos.JLN1.setText("1");
+                    }
+                    if(entero1 >0){
+                        FrmModulos.JLN2.setText("1");
+                    }if(entero2 >0){
+                        FrmModulos.JLN3.setText("1");
+                    }
+                 if(FrmModulos.JLN1.getText().equals("1") && FrmModulos.JLN2.getText().equals("1") && FrmModulos.JLN3.getText().equals("1")){
+                     FrmModulos.JLPorcentaje.setText("100%");
+                     m1= 99;
+                    }else if((FrmModulos.JLN1.getText().equals("1") && FrmModulos.JLN2.getText().equals("1")) || (FrmModulos.JLN1.getText().equals("1") && FrmModulos.JLN3.getText().equals("1")) || (FrmModulos.JLN2.getText().equals("1") && FrmModulos.JLN3.getText().equals("1")) ){
+                       FrmModulos.JLPorcentaje.setText("66%");
+                       m1= 66;
+                    }else if(FrmModulos.JLN1.getText().equals("1") || FrmModulos.JLN2.getText().equals("1") || FrmModulos.JLN3.getText().equals("1")){
+                       FrmModulos.JLPorcentaje.setText("33%");
+                       m1=33;
+                    }else{
+                        FrmModulos.JLPorcentaje.setText("0%");
+                        m1=0; 
+                    } 
+               
+               
+                    Barra.setValue(m1);
+                  // JOptionPane.showMessageDialog(this, "Bienevido(a) PENDEJO \n"+Buscar_Nota);
+               
+               
+                ventana.setVisible(true);
+                this.dispose();
+            }
 
             } /*else{
                 JOptionPane.showMessageDialog(null, "el usuario ya existe ");
             }*/
        
-        FrmModulos ventana = new FrmModulos();
+       
        // ventana.LbUser.setText(Buscar_Nombre);
        
        
        
-       ventana.setVisible(true);
-       this.dispose();
+       
 
     }//GEN-LAST:event_BtGuardarActionPerformed
 
@@ -263,7 +309,6 @@ public class FrmRegistroUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtGuardar;
-    private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel JLImagen;
     private javax.swing.JLabel JlCorreo;
     private javax.swing.JLabel jLabel2;

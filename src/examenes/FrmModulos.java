@@ -5,17 +5,59 @@
  */
 package examenes;
 
-import java.awt.Image;
+import MetodosSQL.ConexionBD;
+import MetodosSQL.MetodosSQL;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
+//import java.awt.Image;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.sun.scenario.effect.ImageData;
+import java.awt.Graphics;
+import java.io.Writer;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.mysql.jdbc.Connection;
+import static examenes.FrmProfesor.JTEstudiantes;
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import static java.time.Clock.system;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
+
+
 
 /**
  *
  * @author javie
  */
 public final class FrmModulos extends javax.swing.JFrame {
-
+    
+    public int n1= 0;
+    public int n2= 0;
+    public int n3= 0;
+    
+    public int porcentaje = n1+n2+n3;
+    
+    
+    //int  val = Integer.parseInt(JLPorcentaje.getText());
     /**
      * Creates new form FrmModulos
      */
@@ -27,11 +69,27 @@ public final class FrmModulos extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1,"src/imagenes/mate.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2,"src/imagenes/socia.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3,"src/imagenes/lengua.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(JLLogo,"src/imagenes/game.png");
+        JLN1.setVisible(false);
+        JLN2.setVisible(false);
+        JLN3.setVisible(false);
+        //JBFin.setEnabled(false);
+       
         
         
+        
+      
+      
+      
        
     }
 
+
+     
+    
+ MetodosSQL metodos = new MetodosSQL(); 
+    
+ 
     
     
     /**
@@ -47,17 +105,35 @@ public final class FrmModulos extends javax.swing.JFrame {
         JBLenguaje = new javax.swing.JButton();
         JBSociales = new javax.swing.JButton();
         JBMatematicas = new javax.swing.JButton();
-        LbUser = new javax.swing.JLabel();
+        LBCorreo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        JLLogo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        JBFin = new javax.swing.JButton();
+        Barra = new javax.swing.JProgressBar();
+        jLabel5 = new javax.swing.JLabel();
+        JLN1 = new javax.swing.JLabel();
+        JLN2 = new javax.swing.JLabel();
+        JLN3 = new javax.swing.JLabel();
+        JLPorcentaje = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        JBLenguaje.setBackground(new java.awt.Color(255, 126, 57));
+        JBLenguaje.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JBLenguaje.setForeground(new java.awt.Color(255, 255, 255));
         JBLenguaje.setText("presiona para empezar!");
         JBLenguaje.setAutoscrolls(true);
         JBLenguaje.setBorder(null);
@@ -66,55 +142,247 @@ public final class FrmModulos extends javax.swing.JFrame {
                 JBLenguajeActionPerformed(evt);
             }
         });
-        jPanel1.add(JBLenguaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 190, 40));
+        jPanel1.add(JBLenguaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 190, 40));
 
+        JBSociales.setBackground(new java.awt.Color(255, 126, 57));
+        JBSociales.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JBSociales.setForeground(new java.awt.Color(255, 255, 255));
         JBSociales.setText("presiona para empezar!");
         JBSociales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBSocialesActionPerformed(evt);
             }
         });
-        jPanel1.add(JBSociales, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 160, 40));
+        jPanel1.add(JBSociales, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 210, 40));
 
+        JBMatematicas.setBackground(new java.awt.Color(255, 126, 57));
+        JBMatematicas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JBMatematicas.setForeground(new java.awt.Color(255, 255, 255));
         JBMatematicas.setText("presiona para empezar!");
         JBMatematicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBMatematicasActionPerformed(evt);
             }
         });
-        jPanel1.add(JBMatematicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 160, 40));
+        jPanel1.add(JBMatematicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 210, 40));
 
-        LbUser.setText("usuario");
-        jPanel1.add(LbUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 60, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 240, 210));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 260, 220));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 270, 220));
+        LBCorreo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LBCorreo.setText("Correo");
+        jPanel1.add(LBCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 230, 210));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 250, 210));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 250, 210));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 620));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 10, 350));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 1000, 10));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 10, 350));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1000, 10));
+
+        JLLogo.setText("jLabel4");
+        jPanel1.add(JLLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 70));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel4.setText("Materias ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 180, 50));
+
+        JBFin.setBackground(new java.awt.Color(255, 126, 57));
+        JBFin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        JBFin.setForeground(new java.awt.Color(255, 255, 255));
+        JBFin.setText("Finalizar ");
+        JBFin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(JBFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 170, 40));
+
+        Barra.setBackground(new java.awt.Color(255, 126, 57));
+        jPanel1.add(Barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 200, 20));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Tu progreso");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 70, -1));
+
+        JLN1.setText("0");
+        jPanel1.add(JLN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+
+        JLN2.setText("0");
+        jPanel1.add(JLN2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, -1, -1));
+
+        JLN3.setText("0");
+        jPanel1.add(JLN3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 110, -1, -1));
+
+        JLPorcentaje.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        JLPorcentaje.setText("0 %");
+        jPanel1.add(JLPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 50, -1));
+
+        jButton1.setBackground(new java.awt.Color(255, 126, 57));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("regresar a modulos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 600, 160, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBMatematicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBMatematicasActionPerformed
-      FrmMatematicas v = new  FrmMatematicas();
-      v.setVisible(true);
-      v.setLocationRelativeTo(null);
-      this.dispose();
+      if(JLN1.getText().equals("1")){
+          JOptionPane.showMessageDialog(null, "Ya superaste esta materia prueba con otra ");
+      }else{
+          FrmMatematicas v = new  FrmMatematicas();
+          v.setVisible(true);
+          v.setLocationRelativeTo(null);
+      }
+      
+      //this.dispose();
     }//GEN-LAST:event_JBMatematicasActionPerformed
 
     private void JBSocialesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSocialesActionPerformed
+       if(JLN2.getText().equals("1")){
+          JOptionPane.showMessageDialog(null, "Ya superaste esta materia prueba con otra ");
+      }else{
        FrmSociales v = new FrmSociales();
        v.setVisible(true);
-       this.dispose();
+       v.setLocationRelativeTo(null);
+       }
+      
+       //this.dispose();
     }//GEN-LAST:event_JBSocialesActionPerformed
 
     private void JBLenguajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLenguajeActionPerformed
+         if(JLN3.getText().equals("1")){
+          JOptionPane.showMessageDialog(null, "Ya superaste esta materia prueba con otra ");
+      }else{
         FrmLenguaje v = new FrmLenguaje();
         v.setVisible(true);
-        v.setLocationRelativeTo(null);
-        this.dispose();
+        v.setLocationRelativeTo(null);  
+         }
+        
+        //this.dispose();
     }//GEN-LAST:event_JBLenguajeActionPerformed
 
+    private void JBFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFinActionPerformed
+        if(JLN1.getText().equals("1") && JLN1.getText().equals("1") && JLN1.getText().equals("1") ){
+        String Buscar_Nota = MetodosSQL.BuscarNotaMatematica(LBCorreo.getText());
+        String Buscar_Nota1 = MetodosSQL.BuscarNotaSociales(LBCorreo.getText());
+        String Buscar_Nota2 = MetodosSQL.BuscarNotaLenguaje(LBCorreo.getText());
+        String Estado = "0";    
+        double entero = Double.parseDouble(Buscar_Nota);
+        double entero1 = Double.parseDouble(Buscar_Nota1);
+        double entero2 = Double.parseDouble(Buscar_Nota2);
+               
+        double Pro = (entero+entero1+entero2)/3;
+       
+       
+        if(Pro>=7){
+            Estado = "A";
+        }else{
+            Estado = "R";
+        }
+        BigDecimal bd = new BigDecimal(Pro).setScale(1,RoundingMode.HALF_UP);
+        String Promedio = String.valueOf(bd);
+        
+        metodos.Promedio(FrmModulos.LBCorreo.getText(),Promedio,Estado);
+        
+        try {
+            Generar(LBCorreo.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FrmModulos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(FrmModulos.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        System.exit(0);
+        } else{
+            JOptionPane.showMessageDialog(null, "Debes terminar todos los juegos");
+            
+        }
+         
+    }//GEN-LAST:event_JBFinActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       FrmRegistroUsuarios v = new FrmRegistroUsuarios(this, true);
+       v.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+     
+    public void Generar(String Correo )throws FileNotFoundException, DocumentException{
+        
+        
+        try {
+            String Busca_Nombre = metodos.BuscarNombres(LBCorreo.getText());
+            FileOutputStream archivo = new FileOutputStream(Busca_Nombre+".pdf");
+            Document documento = new Document();
+            //PdfWriter writer = PdfWriter.getInstance(documento, archivo);
+            PdfWriter.getInstance(documento, archivo);
+            Image I = Image.getInstance("src/imagenes/i.png");
+            I.scaleToFit(600, 1000);
+            I.setAlignment(Chunk.ALIGN_CENTER);
+            documento.open();
+            
+            PdfPTable tabla = new PdfPTable(7);
+            tabla.addCell("Nombre");
+            tabla.addCell("Apellido");
+            tabla.addCell("Lenguaje");
+            tabla.addCell("Sociales");
+            tabla.addCell("Matematicas");
+            tabla.addCell("Promedio");
+            tabla.addCell("Estado");
+            
+            try {
+            Statement Leer =  ConexionBD.conectar().createStatement();
+            ResultSet  res = Leer.executeQuery("SELECT Nombres,Apellidos,Lenguaje,Sociales,Matematicas,Promedio,Estado FROM estudiantes WHERE Correo = '"+Correo+"'");
+            
+            while(res.next()){
+                tabla.addCell ( res.getString(1));
+                tabla.addCell ( res.getString(2));
+                tabla.addCell ( res.getString(3));
+                tabla.addCell ( res.getString(4));
+                tabla.addCell ( res.getString(5));
+                tabla.addCell ( res.getString(6));
+                tabla.addCell ( res.getString(7));
+                
+              
+                
+            }
+           
+            
+        } catch (Exception e) {
+        }
+            Paragraph parrafo = new Paragraph("Datos Personales\n\n");
+            parrafo.setAlignment(1);
+            documento.add(I);
+            documento.add(parrafo);
+            documento.add(tabla);
+            documento.close();
+            //ImageIcon imagen1 = new ImageIcon(getClass().getResource("src/imagenes/UGlogo.png"));
+            //documento.add(DrawImage(imagen1.getImage(),200,250,200,200,null));
+        } catch (BadElementException ex) {
+            Logger.getLogger(FrmModulos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FrmModulos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+        
+    
+    
+    
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -148,27 +416,30 @@ public final class FrmModulos extends javax.swing.JFrame {
         });
     }
     
-    public Icon setIcon(String url, JButton boton){
-    
-        ImageIcon icon = new ImageIcon( getClass().getResource(url));
-        
-        int ancho = boton.getWidth();
-        int alto = boton.getHeight();
-        
-        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho,alto,Image.SCALE_DEFAULT));
-        
-        return icono;
-      
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JProgressBar Barra;
+    public static javax.swing.JButton JBFin;
     private javax.swing.JButton JBLenguaje;
     private javax.swing.JButton JBMatematicas;
     private javax.swing.JButton JBSociales;
-    public static javax.swing.JLabel LbUser;
+    private javax.swing.JLabel JLLogo;
+    public static javax.swing.JLabel JLN1;
+    public static javax.swing.JLabel JLN2;
+    public static javax.swing.JLabel JLN3;
+    public static javax.swing.JLabel JLPorcentaje;
+    public static javax.swing.JLabel LBCorreo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
